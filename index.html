@@ -1,84 +1,66 @@
+1 pour créer un fichier HTML, pas de problème. 2 Le style, ça je ne sais pas, et pour les images non plus, surtout pour les codes.
+Parfait, tu as déjà le plus dur ✅
+On fait simple en 3 blocs : HTML, style (CSS), images.
+1) Créer un fichier HTML (tu sais déjà)
+Exemple : articles/02-mon-test.html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LABO Premieres Nations</title>
-  <style>
-    :root {
-      --bg: #0f1218;
-      --card: #1a1f29;
-      --text: #f3f1eb;
-      --accent: #d8aa4f;
-      --muted: #a8a8a8;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-    .card {
-      width: min(760px, 100%);
-      background: var(--card);
-      border: 1px solid rgba(216, 170, 79, 0.35);
-      border-radius: 14px;
-      padding: 24px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-    }
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(1.5rem, 3.2vw, 2rem);
-      color: var(--accent);
-    }
-    p { margin: 8px 0; line-height: 1.55; }
-    .muted { color: var(--muted); }
-    .row {
-      margin-top: 18px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    button {
-      background: var(--accent);
-      color: #151515;
-      border: 0;
-      border-radius: 999px;
-      padding: 10px 16px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    code {
-      background: #11151d;
-      border: 1px solid #2e3644;
-      border-radius: 6px;
-      padding: 2px 6px;
-    }
-  </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Mon test</title>
+ <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-  <main class="card">
-    <h1>LABO Premieres Nations</h1>
-    <p>Environnement d'essai local pour apprendre sans toucher au site principal.</p>
-    <p class="muted">Serveur local recommande: <code>http://localhost:8081</code></p>
-    <div class="row">
-      <button id="test-btn" type="button">Tester une interaction</button>
-    </div>
-    <p id="msg" class="muted"></p>
-  </main>
-
-  <script>
-    const btn = document.getElementById("test-btn");
-    const msg = document.getElementById("msg");
-    btn.addEventListener("click", function () {
-      const now = new Date().toLocaleString("fr-CA");
-      msg.textContent = "Interaction OK - test local execute le " + now;
-    });
-  </script>
+ <main class="card">
+   <h1>Mon test</h1>
+   <p>Premier paragraphe.</p>
+   <a class="btn-link" href="../index.html">Retour</a>
+ </main>
 </body>
 </html>
+2) Le style CSS (facile)
+Tu modifies assets/css/style.css.
+Idée clé : tu crées une classe, puis tu l’utilises dans le HTML.
+Exemple CSS :
+.mon-titre {
+ color: #ffd67a;
+ font-size: 2rem;
+}
+Dans HTML :
+<h1 class="mon-titre">Mon titre stylé</h1>
+3) Les images (très important)
+Mets l’image dans un dossier, par exemple assets/images/.
+Appelle-la sans espaces, ex: canot.jpg.
+Dans une page dans articles/, le chemin sera :
+<img src="../assets/images/canot.jpg" alt="Canot traditionnel" style="max-width:100%;border-radius:10px;">
+alt = texte descriptif (important).
+max-width:100% évite que l’image déborde.
+
+Si tu veux, je peux te faire un article modèle complet avec :
+titre,
+paragraphe,
+image,
+bouton retour,
+et un style propre prêt à copier-coller.
+je sais comment recuperer le style sur le site deja fait ca
+Parfait, excellent 👍
+Alors tu as déjà la bonne base.
+Le plus important maintenant :
+garder la même structure de fichiers (assets/css, assets/images, articles)
+vérifier les chemins relatifs :
+depuis index.html → assets/...
+depuis articles/xxx.html → ../assets/...
+garder des noms simples sans espaces/accents pour images et fichiers
+Si tu veux, je peux te faire un petit aide-mémoire perso (10 lignes) “chemins CSS/images qui marchent à tous les coups” dans ton LABO.
+mais je fais des essais que je ne vais pas garder pour seulement m entrainer et j aurais certainement besoin de toi pour mes erreurs
+Parfait, c’est exactement comme ça qu’il faut apprendre 👌
+Tu peux faire tous tes essais dans ce LABO, casser/recommencer sans risque.
+Et oui, je serai là pour corriger tes erreurs rapidement.
+Méthode simple quand ça bloque :
+Tu m’envoies le message d’erreur ?
+ou tu dis juste : “ça n’affiche plus”
+Je te dis quoi corriger (chemin, CSS, image, balise, etc.)
+On peut avancer en mode atelier : tu testes → tu m’appelles → je corrige avec toi.
+
+
