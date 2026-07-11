@@ -1,0 +1,10 @@
+{
+  "site": {
+    "title": "LABO First Nations",
+    "subtitle": "Local test environment"
+  },
+  "home": {
+    "welcome": "Welcome to the lab",
+    "cta": "Test an interaction"
+  }
+}

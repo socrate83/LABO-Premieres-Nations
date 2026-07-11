@@ -1,0 +1,10 @@
+{
+  "site": {
+    "title": "LABO Primeras Naciones",
+    "subtitle": "Entorno local de prueba"
+  },
+  "home": {
+    "welcome": "Bienvenido al laboratorio",
+    "cta": "Probar una interaccion"
+  }
+}
