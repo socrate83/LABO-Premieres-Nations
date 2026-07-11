@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Les Mémoires de Pierre le Fouineur</title>
+  
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     body { font-family: Georgia, serif; line-height: 1.7; max-width: 720px; margin: 2rem auto; padding: 0 1.25rem; background: #f7f1e8; color: #1a1a1a; }
@@ -13,8 +14,14 @@
 </head>
 <body>
   <article>
-    <img src="Ours.png" alt="Ours">
-    <h1>Les Mémoires de Pierre le Fouineur : Raconter l’Indicible, Transmettre la Lumière</h1>
+  <article class="article-hero">
+    <!-- En-tête de l'article avec l'image -->
+    <figure class="article-image">
+        <img src="Ours,png" alt="Ours polaire" width="800" height="450">
+        <figcaption>L ours polaire </figcaption>
+    </figure>
+   <!-- Contenu textuel de l'article -->
+  <h1>Les Mémoires de Pierre le Fouineur : Raconter l’Indicible, Transmettre la Lumière</h1>
     <p>Au cœur des forêts du Québec — là où les rivières serpentent comme des serpents endormis, où les vents murmurent les noms 
     d’anciens ancêtres, et où chaque rocher, chaque bouleau, chaque trace de mocassin porte l’écho de ceux qui nous ont précédé 
     une voix s’est levée il y a près d’un siècle.</p>
@@ -45,3 +52,8 @@
   </article>
 </body>
 </html>
+
+
+
+
+     
