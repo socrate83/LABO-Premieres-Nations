@@ -11,8 +11,9 @@ Dépôt d'essai privé pour apprendre GitHub et la structure d'un site.
 
 | Fichier | Rôle |
 |---------|------|
-| `DEMARRER-LABO.bat` | Démarre le serveur + ouvre le navigateur |
-| `OUVRIR-LABO.bat` | Ouvre le navigateur (démarre le serveur si besoin) |
+| **`LABO.bat`** | **Double-clic ici** — démarre tout automatiquement |
+| `DEMARRER-LABO.bat` | Démarre le serveur Python port 8081 |
+| `OUVRIR-LABO.bat` | Ouvre le navigateur (démarre serveur si besoin) |
 | `VERIFIER-LABO.bat` | Diagnostic si ça ne marche pas |
 
 Port fixe : **8081**
