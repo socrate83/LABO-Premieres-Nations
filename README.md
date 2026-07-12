@@ -4,14 +4,28 @@ Dépôt d'essai privé pour apprendre GitHub et la structure d'un site.
 
 ## Démarrage local (une bonne fois pour toutes)
 
-1. Clone ou mets à jour le dépôt sur ton PC
+1. Clone ou mets à jour le dépôt sur ton PC (`git pull`)
 2. Double-clique **`DEMARRER-LABO.bat`**
-3. Le navigateur s'ouvre sur **`http://localhost:8081`**
-4. **Laisse la fenêtre noire ouverte** pendant tes essais
+3. **Laisse la fenêtre noire OUVERTE** — si tu la fermes, localhost refuse la connexion
+4. Le navigateur s'ouvre sur **`http://localhost:8081`**
 
-Pour rouvrir le navigateur sans relancer le serveur : double-clique **`OUVRIR-LABO.bat`**.
+| Fichier | Rôle |
+|---------|------|
+| `DEMARRER-LABO.bat` | Démarre le serveur + ouvre le navigateur |
+| `OUVRIR-LABO.bat` | Ouvre le navigateur (démarre le serveur si besoin) |
+| `VERIFIER-LABO.bat` | Diagnostic si ça ne marche pas |
 
-Port fixe : **8081** (toujours le même).
+Port fixe : **8081**
+
+### ERR_CONNECTION_REFUSED — que faire ?
+
+Ce message = **aucun serveur ne tourne**. Ce n'est pas un problème de pare-feu.
+
+1. Double-clic **`DEMARRER-LABO.bat`** (pas seulement OUVRIR-LABO)
+2. Vérifie que la fenêtre noire **reste ouverte**
+3. Attends 2 secondes, puis va sur http://localhost:8081
+4. Si ça bloque : double-clic **`VERIFIER-LABO.bat`** et lis le diagnostic
+5. Si Python manque : installe-le avec **« Add to PATH »** coché → https://www.python.org/downloads/
 
 ## Arborescence
 
@@ -49,8 +63,8 @@ Puis ouvre : http://localhost:8081
 
 | Problème | Solution |
 |----------|----------|
+| **ERR_CONNECTION_REFUSED** | Lance `DEMARRER-LABO.bat` et garde la fenêtre ouverte |
 | Page blanche ou 404 | Vérifie que `DEMARRER-LABO.bat` tourne encore |
 | Port déjà utilisé | Ferme l'autre fenêtre serveur, relance le .bat |
-| Image ne s'affiche pas | Vérifie le chemin `../assets/images/` depuis `articles/` |
-| CSS absent | Même chose pour `../assets/css/style.css` |
 | Python introuvable | Installe Python avec « Add to PATH » coché |
+| Diagnostic complet | Double-clic `VERIFIER-LABO.bat` |
