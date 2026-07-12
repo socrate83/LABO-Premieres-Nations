@@ -1,0 +1,51 @@
+LABO Premières Nations — DÉMARRAGE SIMPLE
+=========================================
+
+NE PAS taper de commandes dans PowerShell !
+Les lignes [OK] index.html trouvé sont des MESSAGES, pas des commandes.
+
+
+MÉTHODE 1 — La plus simple (Explorateur Windows)
+------------------------------------------------
+1. Ouvre le dossier LABO-Premieres-Nations sur ton PC
+2. Double-clic sur :  LABO.bat
+3. Une fenêtre NOIRE s'ouvre — NE LA FERME PAS
+4. Chrome s'ouvre tout seul sur http://127.0.0.1:8081
+
+
+MÉTHODE 2 — Si tu es dans PowerShell
+------------------------------------
+1. Va D'ABORD dans le dossier du labo :
+   cd C:\Users\socra\...\LABO-Premieres-Nations
+
+2. Lance :
+   .\LABO.ps1
+
+   (Ou double-clic sur LABO-POWERSHELL.bat)
+
+
+MÉTHODE 3 — Ouvrir Chrome seulement (serveur déjà lancé)
+---------------------------------------------------------
+Double-clic sur : OUVRIR-CHROME.url
+
+
+ADRESSE EXACTE dans Chrome
+--------------------------
+http://127.0.0.1:8081
+
+  - http://   (PAS https://)
+  - 127.0.0.1 (PAS localhost)
+
+
+SI ÇA NE MARCHE PAS
+-------------------
+Double-clic VERIFIER-LABO.bat et envoie le résultat à Socrate.
+
+
+OÙ EST LE DOSSIER LABO ?
+------------------------
+Là où tu as cloné GitHub, par exemple :
+  C:\Users\socra\LABO-Premieres-Nations
+  C:\Users\socra\Documents\LABO-Premieres-Nations
+
+Tu DOIS être dans CE dossier pour lancer le serveur.

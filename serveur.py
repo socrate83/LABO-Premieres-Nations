@@ -55,6 +55,9 @@ def main():
     print(f"  [OK] Serveur actif — ouvre Chrome : {url}")
     print("  (Utilise bien http:// et NON https://)")
     print()
+    print("  --- NE COPIE PAS ces lignes dans PowerShell ---")
+    print("  --- Ouvre Chrome et va sur l'adresse ci-dessus ---")
+    print()
 
     try:
         server.serve_forever()
