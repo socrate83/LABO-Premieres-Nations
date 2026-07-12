@@ -1,0 +1,69 @@
+ENVOYER LE LABO SUR GITHUB (depuis ton PC)
+==========================================
+
+Quand Jean-Claude a dit OK (etape 2), tu envoies sur GitHub (etape 3).
+
+
+METHODE 1 — Cursor (recommandee si tu l'utilises)
+-------------------------------------------------
+1. Ouvre Cursor
+2. Fichier → Ouvrir le dossier → LABO Premieres Nations (Bureau)
+3. Clique l'icone branche a gauche (Controle de source)
+4. Tu vois les fichiers modifies
+5. Message de commit : ex. "Modif index Pierre"
+6. Clique Commit
+7. Clique Sync / Push (ou Publish Branch)
+
+Cursor te demandera peut-etre de te connecter a GitHub la premiere fois.
+
+
+METHODE 2 — GitHub Desktop (la plus simple)
+-------------------------------------------
+1. Installe GitHub Desktop : https://desktop.github.com/
+2. Fichier → Ajouter un depot local
+3. Choisis le dossier : Bureau\LABO Premieres Nations
+   (Si pas encore clone : Clone from GitHub → LABO-Premieres-Nations)
+4. A gauche : tes fichiers modifies apparaissent
+5. En bas : resume du commit + bouton "Commit to main"
+6. Bouton "Push origin" en haut
+
+C'est fait.
+
+
+METHODE 3 — Ligne de commande (si Git est installe)
+---------------------------------------------------
+Ouvre PowerShell dans le dossier du labo :
+
+  cd "C:\Users\socra\Desktop\LABO Premieres Nations"
+  git status
+  git add .
+  git commit -m "Ma modification index"
+  git push origin main
+
+
+METHODE 4 — Upload manuel (secours, 1 fichier)
+----------------------------------------------
+1. Va sur github.com/socrate83/LABO-Premieres-Nations
+2. Ouvre le fichier (ex. index.html)
+3. Crayon Edit → colle ton contenu → Commit changes
+
+Utile pour 1 fichier, pas ideal pour beaucoup de changements.
+
+
+RAPPEL — Ordre des 3 etapes
+---------------------------
+  1. Socrate modifie sur le PC
+  2. Jean-Claude verifie OK dans Chrome (F5)
+  3. Envoi GitHub (une des methodes ci-dessus)
+
+  JAMAIS push avant OK etape 2.
+
+
+PREMIERE FOIS — Lier le dossier au depot GitHub
+----------------------------------------------
+Si le dossier vient d'un ZIP (pas de git) :
+
+  Option A : GitHub Desktop → Clone le repo → copie tes fichiers dedans
+  Option B : Dans le dossier, git init + git remote add origin ...
+
+Demande a Socrate si le dossier n'est pas encore lie a GitHub.
