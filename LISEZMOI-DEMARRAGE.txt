@@ -1,100 +1,42 @@
 ╔══════════════════════════════════════════════════════════════╗
-║  LABO PREMIÈRES NATIONS — MODE D'EMPLOI (sans terminal)     ║
+║  LABO — DÉMARRAGE (sans terminal, sans Python)               ║
 ╚══════════════════════════════════════════════════════════════╝
 
-Tu n'as PAS besoin d'ouvrir PowerShell, CMD ou un terminal.
-Double-clic sur un fichier .bat = Windows ouvre une fenêtre noire
-toute seule. C'est normal. C'est le "serveur".
+PROBLÈME "127.0.0.1 n'autorise pas la connexion" ?
+= Le serveur n'est PAS lancé. Suis ces étapes :
 
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- ÉTAPE A — Avoir le dossier LABO sur ton PC (pas seulement GitHub)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-GitHub (site web) = tu VOIS le code en ligne.
-Ton PC (dossier local) = tu VOIS le site dans Chrome.
-
-Si tu n'as que GitHub dans le navigateur, le LABO n'est pas encore
-sur ton PC. Deux options :
-
-  OPTION 1 — Télécharger (le plus simple)
-  ----------------------------------------
-  1. Va sur : https://github.com/socrate83/LABO-Premieres-Nations
-  2. Bouton vert "Code" → "Download ZIP"
-  3. Dézippe le ZIP (clic droit → Extraire tout)
-  4. Tu obtiens un dossier : LABO-Premieres-Nations
-  5. Mets-le où tu veux, par exemple :
-     C:\Users\socra\LABO-Premieres-Nations
-
-  OPTION 2 — Déjà cloné avec Git
-  ------------------------------
-  Le dossier existe quelque part sur ton disque.
-  Cherche "LABO-Premieres-Nations" dans la barre de recherche Windows.
+ÉTAPE 1 — Télécharger le LABO sur ton PC
+-----------------------------------------
+  GitHub → Code → Download ZIP → Extraire
+  Dossier : LABO-Premieres-Nations
 
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- ÉTAPE B — Vérifier que les bons fichiers sont là
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ÉTAPE 2 — Double-clic sur UN seul fichier
+------------------------------------------
+  >>>  1-LANCER-LE-LABO.bat  <<<
 
-Ouvre le dossier avec l'Explorateur Windows (icône dossier jaune).
-Tu DOIS voir ces fichiers à la racine :
+  Une fenêtre NOIRE s'ouvre avec :
+    [OK] Serveur actif sur http://127.0.0.1:8081/
 
-  LABO.bat              ← le principal (double-clic ici)
-  DEMARRER-LABO.bat
-  serveur.py
-  index.html
-  LISEZMOI-DEMARRAGE.txt
-
-Si tu ne vois PAS "LABO.bat" :
-  → retélécharge le ZIP depuis GitHub (version pas à jour)
+  NE FERME PAS cette fenêtre.
 
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- ÉTAPE C — Lancer le labo (ZÉRO terminal à ouvrir toi-même)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  1. Double-clic sur :  LABO.bat
-
-  2. Une fenêtre NOIRE apparaît (Windows l'ouvre automatiquement).
-     C'est le serveur. NE LA FERME PAS.
-
-  3. Tu dois lire dans cette fenêtre :
-       [OK] index.html trouvé
-       [OK] Serveur actif — ouvre Chrome : http://127.0.0.1:8081/
-
-     ⚠ NE COPIE PAS ces lignes ailleurs. Lis-les seulement.
-
-  4. Chrome s'ouvre tout seul.
-     Sinon, double-clic sur : OUVRIR-CHROME.url
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- ÉTAPE D — Adresse dans Chrome
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
+ÉTAPE 3 — Chrome
+-----------------
+  S'ouvre tout seul. Sinon va sur :
   http://127.0.0.1:8081
 
-  • http://     (PAS https://)
-  • 127.0.0.1   (PAS localhost)
+
+MODE SECOURS (si rien ne marche)
+---------------------------------
+  Double-clic : OUVRIR-SANS-SERVEUR.bat
+  (ouvre index.html sans serveur)
 
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- RAPPEL IMPORTANT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  Fenêtre noire ouverte  =  site accessible dans Chrome
-  Fenêtre noire fermée   =  "site inaccessible" (normal)
-
-  Pour arrêter : ferme la fenêtre noire ou Ctrl+C dedans.
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- SI ÇA NE MARCHE PAS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  Double-clic sur : VERIFIER-LABO.bat
-  Lis le résultat à l'écran et envoie-le à Socrate.
-
-  Ou installe Python (une seule fois) :
-  https://www.python.org/downloads/
-  Coche "Add python.exe to PATH" → réinstalle → relance LABO.bat
+IMPORTANT
+---------
+  • Pas besoin de PowerShell manuel
+  • Pas besoin de Python
+  • Ne copie pas les lignes [OK] dans une fenêtre
+  • Fenêtre noire fermée = site inaccessible

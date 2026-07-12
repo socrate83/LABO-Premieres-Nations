@@ -1,29 +1,33 @@
 @echo off
 chcp 65001 >nul
-title AIDE LABO — Lis ceci en premier
+title LANCER LE LABO
 
 cd /d "%~dp0"
 
 echo.
-echo  ====================================================
+echo  ==========================================
 echo   LABO Premieres Nations
-echo   AIDE RAPIDE — pas besoin de terminal
-echo  ====================================================
+echo   Double-clic = lance le serveur
+echo  ==========================================
 echo.
-echo  1. Double-clic LABO.bat  (dans ce meme dossier)
-echo  2. Une fenetre NOIRE s'ouvre — NE PAS la fermer
-echo  3. Chrome s'ouvre sur http://127.0.0.1:8081
+echo  Dossier : %CD%
 echo.
-echo  Tu es dans le dossier :
-echo  %CD%
-echo.
-echo  Fichiers necessaires :
-if exist "LABO.bat" (echo    LABO.bat          OK) else (echo    LABO.bat          MANQUANT)
-if exist "index.html" (echo    index.html        OK) else (echo    index.html        MANQUANT)
-if exist "serveur.py" (echo    serveur.py        OK) else (echo    serveur.py        MANQUANT)
-echo.
-echo  ====================================================
-echo  Appuie sur une touche pour LANCER le labo maintenant...
-pause >nul
 
-call "%~dp0LABO.bat"
+if not exist "index.html" (
+    echo  [ERREUR] Tu n'es pas dans le bon dossier
+    echo  ou la version est incomplete.
+    echo  Retelecharge le ZIP depuis GitHub.
+    goto :fin
+)
+
+echo  Fichiers : OK
+echo.
+echo  Une fenetre va s'ouvrir avec le serveur.
+echo  NE LA FERME PAS.
+echo  Chrome s'ouvrira sur http://127.0.0.1:8081
+echo.
+pause
+
+start "LABO serveur 8081" /D "%~dp0" cmd /k LABO.bat
+
+:fin
