@@ -5,7 +5,7 @@ title LABO serveur port 8081
 
 cd /d "%~dp0"
 set "PORT=8081"
-set "URL=http://localhost:%PORT%"
+set "URL=http://127.0.0.1:%PORT%"
 
 echo.
 echo  ========================================
@@ -14,11 +14,15 @@ echo   %URL%
 echo  ========================================
 echo.
 
-:: Serveur deja actif ?
-netstat -ano | findstr ":%PORT% " | findstr "LISTENING" >nul 2>&1
-if %errorlevel%==0 (
-    echo  [OK] Le serveur tourne deja sur le port %PORT%.
-    start "" "%URL%"
+if not exist "index.html" (
+    echo  [ERREUR] index.html manquant dans ce dossier.
+    echo  Dossier actuel : %CD%
+    echo  Fais git pull pour recuperer la derniere version.
+    goto :fin
+)
+
+if not exist "serveur.py" (
+    echo  [ERREUR] serveur.py manquant. Fais git pull.
     goto :fin
 )
 
@@ -46,33 +50,17 @@ if !errorlevel!==0 (
 )
 
 echo  [ERREUR] Python introuvable.
-echo.
-echo  ERR_CONNECTION_REFUSED = aucun serveur ne tourne.
-echo.
-echo  1. Installe Python : https://www.python.org/downloads/
-echo  2. Coche "Add python.exe to PATH"
-echo  3. Relance ce fichier
-echo.
+echo  Installe Python : https://www.python.org/downloads/
+echo  Coche "Add python.exe to PATH"
 goto :fin
 
 :found_python
 if defined PYARG (
     echo  [OK] Python : %PYEXE% %PYARG%
+    %PYEXE% %PYARG% serveur.py
 ) else (
     echo  [OK] Python : %PYEXE%
-)
-echo.
-echo  >>> NE FERME PAS cette fenetre <<<
-echo  Tant qu'elle est ouverte, %URL% fonctionne.
-echo  Arret : Ctrl+C ou fermer la fenetre.
-echo.
-
-start "" cmd /c "timeout /t 2 /nobreak >nul && start %URL%"
-
-if defined PYARG (
-    %PYEXE% %PYARG% -m http.server %PORT%
-) else (
-    %PYEXE% -m http.server %PORT%
+    %PYEXE% serveur.py
 )
 
 echo.

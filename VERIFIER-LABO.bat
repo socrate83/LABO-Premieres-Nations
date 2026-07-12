@@ -1,12 +1,11 @@
 @echo off
 setlocal EnableExtensions
 chcp 65001 >nul
-title Vérification LABO — localhost 8081
+title Verification LABO — 127.0.0.1:8081
 
 cd /d "%~dp0"
-
 set "PORT=8081"
-set "URL=http://localhost:%PORT%"
+set "URL=http://127.0.0.1:%PORT%"
 
 echo.
 echo  ========================================
@@ -14,53 +13,45 @@ echo   DIAGNOSTIC LABO Premières Nations
 echo  ========================================
 echo.
 
-:: 1. Dossier
-echo  [1] Dossier du labo :
+echo  [1] Dossier :
 echo      %CD%
-if exist "index.html" (
-    echo      index.html : OK
-) else (
-    echo      index.html : MANQUANT — fais git pull ou récupère la dernière version
-)
-if exist "articles\pierre-memoire.html" (
-    echo      article pierre-memoire : OK
-) else (
-    echo      article pierre-memoire : MANQUANT
-)
+if exist "index.html" (echo      index.html : OK) else (echo      index.html : MANQUANT — git pull)
+if exist "serveur.py" (echo      serveur.py : OK) else (echo      serveur.py : MANQUANT — git pull)
+if exist "articles\pierre-memoire.html" (echo      article    : OK) else (echo      article    : MANQUANT)
 echo.
 
-:: 2. Python
 echo  [2] Python :
 set "FOUND=0"
 where py >nul 2>&1 && (py -3 --version 2>nul && set "FOUND=1" && echo      py -3 : OK)
 if "%FOUND%"=="0" where python >nul 2>&1 && (python --version 2>nul && set "FOUND=1" && echo      python : OK)
-if "%FOUND%"=="0" where python3 >nul 2>&1 && (python3 --version 2>nul && set "FOUND=1" && echo      python3 : OK)
-if "%FOUND%"=="0" (
-    echo      Python : NON TROUVE
-    echo      ^> Installe Python avec "Add to PATH" coche
-)
+if "%FOUND%"=="0" echo      Python : NON TROUVE
 echo.
 
-:: 3. Port 8081
-echo  [3] Port %PORT% :
-netstat -ano | findstr ":%PORT% " | findstr "LISTENING" >nul 2>&1
+echo  [3] Port %PORT% sur 127.0.0.1 :
+netstat -ano | findstr "127.0.0.1:%PORT% " | findstr "LISTENING" >nul 2>&1
 if %errorlevel%==0 (
-    echo      Port %PORT% : OCCUPE (un serveur tourne peut-etre)
+    echo      ECOUTE sur 127.0.0.1:%PORT% — OK
 ) else (
-    echo      Port %PORT% : LIBRE (aucun serveur — normal si DEMARRER-LABO pas lance)
+    echo      RIEN n'ecoute — serveur non demarre
+    netstat -ano | findstr ":%PORT% " | findstr "LISTENING" >nul 2>&1
+    if %errorlevel%==0 echo      (Attention : port occupe ailleurs, pas sur 127.0.0.1)
 )
 echo.
 
-:: 4. Test HTTP
-echo  [4] Test http://localhost:%PORT% :
-powershell -NoProfile -Command "try { $r = Invoke-WebRequest -Uri '%URL%' -UseBasicParsing -TimeoutSec 3; Write-Host '      HTTP' $r.StatusCode '- SERVEUR OK' } catch { Write-Host '      REFUSE - serveur non demarre (ERR_CONNECTION_REFUSED)' }"
+echo  [4] URL a utiliser dans Chrome :
+echo      %URL%
+echo      (http:// avec 127.0.0.1 — PAS https://)
 echo.
 
-:: 5. Conclusion
 echo  ========================================
 echo   QUE FAIRE ?
 echo  ========================================
-echo.
-powershell -NoProfile -Command "try { (Invoke-WebRequest -Uri '%URL%' -UseBasicParsing -TimeoutSec 2).StatusCode | Out-Null; Write-Host '  Le serveur fonctionne. Double-clic OUVRIR-LABO.bat' } catch { Write-Host '  Double-clic DEMARRER-LABO.bat' ; Write-Host '  Garde la fenetre noire OUVERTE' ; Write-Host '  Puis va sur : %URL%' }"
+netstat -ano | findstr "127.0.0.1:%PORT% " | findstr "LISTENING" >nul 2>&1
+if %errorlevel%==0 (
+    echo   Serveur OK — ouvre : %URL%
+) else (
+    echo   Double-clic LABO.bat ou DEMARRER-LABO.bat
+    echo   Garde la fenetre noire OUVERTE
+)
 echo.
 pause

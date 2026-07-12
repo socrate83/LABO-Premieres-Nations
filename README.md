@@ -16,7 +16,7 @@ Dépôt d'essai privé pour apprendre GitHub et la structure d'un site.
 | `OUVRIR-LABO.bat` | Ouvre le navigateur (démarre serveur si besoin) |
 | `VERIFIER-LABO.bat` | Diagnostic si ça ne marche pas |
 
-Port fixe : **8081**
+Port fixe : **8081** — adresse : **http://127.0.0.1:8081** (pas `localhost`, pas `https`)
 
 ### ERR_CONNECTION_REFUSED — que faire ?
 
