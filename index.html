@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LABO Premières Nations</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="labo-header">
+    <h1>LABO Premières Nations</h1>
+    <p class="subtitle">Environnement d'essai local — apprendre sans toucher au site principal</p>
+  </header>
+
+  <div class="labo-banner">
+    <strong>Serveur local :</strong> une fois <code>DEMARRER-LABO.bat</code> lancé, ouvre cette adresse :
+    <div class="labo-url">http://localhost:8081</div>
+  </div>
+
+  <section class="labo-card">
+    <h2>Articles de test</h2>
+    <ul>
+      <li><a href="articles/pierre-memoire.html">Les Mémoires de Pierre le Fouineur</a></li>
+    </ul>
+  </section>
+
+  <section class="labo-card">
+    <h2>Interaction de test</h2>
+    <p class="muted">Vérifie que JavaScript fonctionne dans le labo.</p>
+    <button id="test-btn" type="button" class="btn-link" style="border:0;cursor:pointer;">Tester une interaction</button>
+    <p id="msg" class="muted"></p>
+  </section>
+
+  <section class="labo-card">
+    <h2>Structure du dépôt</h2>
+    <ul class="muted">
+      <li><code>index.html</code> — cette page</li>
+      <li><code>articles/</code> — tes pages HTML d'essai</li>
+      <li><code>assets/css/style.css</code> — styles partagés</li>
+      <li><code>assets/images/</code> — images</li>
+    </ul>
+  </section>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
