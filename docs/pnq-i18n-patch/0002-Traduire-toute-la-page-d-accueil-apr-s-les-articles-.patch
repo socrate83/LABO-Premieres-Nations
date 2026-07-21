@@ -1,0 +1,442 @@
+From 20a5d6490f2151be520e44ea1aac971fb78a53bc Mon Sep 17 00:00:00 2001
+From: Cursor Agent <cursoragent@cursor.com>
+Date: Tue, 21 Jul 2026 13:15:15 +0000
+Subject: [PATCH 2/2] =?UTF-8?q?Traduire=20toute=20la=20page=20d'accueil=20?=
+ =?UTF-8?q?apr=C3=A8s=20les=20articles=20(FR/EN/ES)?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- Communauté, citation, pied de page (data-i18n)
+- Blocs vedettes : Langues, Femmes, Derniers articles (home-spotlights-i18n.json)
+- Menu Articles EN/ES corrigé via nav.articles
+- Page Vidéos : suffixe traduit (Documentaries/Documentales)
+- Boutons Lire l'article et Partager traduits dynamiquement
+---
+ Home.html                         | 70 ++++++++++++++--------------
+ Videos.html                       |  4 +-
+ lang-switcher.js                  | 50 ++++++++++++++++++++
+ locales/en.json                   |  3 +-
+ locales/es.json                   |  3 +-
+ locales/fr.json                   |  3 +-
+ locales/home-spotlights-i18n.json | 76 +++++++++++++++++++++++++++++++
+ 7 files changed, 169 insertions(+), 40 deletions(-)
+ create mode 100644 locales/home-spotlights-i18n.json
+
+diff --git a/Home.html b/Home.html
+index 2a3b480..5760c31 100644
+--- a/Home.html
++++ b/Home.html
+@@ -431,13 +431,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+   <!-- ARTICLE VEDETTE : LANGUES AUTOCHTONES -->
+   <section style="padding:5rem 2rem;background:#0d0d0d;">
+     <div style="max-width:1100px;margin:0 auto;">
+-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;text-align:center;margin-bottom:0.5rem;">Les Langues Autochtones du Québec<br/><span style="color:#C8920A;">Revitalisation et Survie Culturelle</span></h2>
+-      <p style="text-align:center;color:rgba(255,255,255,0.45);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:3rem;">📅 12 mai 2026 &nbsp;·&nbsp; Langue &amp; Culture</p>
++      <h2 data-pn-spotlight="langues1Title" data-pn-spotlight-html style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;text-align:center;margin-bottom:0.5rem;">Les Langues Autochtones du Québec<br/><span style="color:#C8920A;">Revitalisation et Survie Culturelle</span></h2>
++      <p data-pn-spotlight="langues1Date" style="text-align:center;color:rgba(255,255,255,0.45);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:3rem;">📅 12 mai 2026 &nbsp;·&nbsp; Langue &amp; Culture</p>
+ 
+       <div style="background:#1a1a1a;border:1px solid rgba(200,146,10,0.3);border-radius:16px;overflow:hidden;max-width:860px;margin:0 auto 2rem;">
+         <div style="padding:2rem;text-align:center;">
+           <div style="font-size:4rem;margin-bottom:1rem;">🗣️</div>
+-          <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.8;margin-bottom:1.2rem;">Le cri, l'innu, l'atikamekw, le mi'kmaq — des langues millénaires menacées d'extinction. Des communautés qui les ramènent à la vie malgré les séquelles des pensionnats indiens et la pression de l'assimilation culturelle.</p>
++          <p data-pn-spotlight="langues1P" style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.8;margin-bottom:1.2rem;">Le cri, l'innu, l'atikamekw, le mi'kmaq — des langues millénaires menacées d'extinction. Des communautés qui les ramènent à la vie malgré les séquelles des pensionnats indiens et la pression de l'assimilation culturelle.</p>
+           <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:center;">
+             <a href="LanguesAutochtones.html" style="background:#C8920A;color:#000;font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;padding:0.65rem 1.5rem;border-radius:30px;text-decoration:none;">Lire l'article →</a>
+             <a href="https://www.facebook.com/groups/1451283625021958" target="_blank" style="background:#1877F2;color:#fff;font-weight:700;font-size:0.8rem;padding:0.65rem 1.2rem;border-radius:30px;text-decoration:none;">Partager 📢</a>
+@@ -448,15 +448,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;max-width:860px;margin:0 auto;">
+         <div style="background:rgba(139,107,20,0.2);border-radius:10px;padding:1.5rem;text-align:center;border:1px solid rgba(200,150,80,0.2);">
+           <div style="font-size:2rem;margin-bottom:0.5rem;">17 070</div>
+-          <p style="font-size:0.8rem;color:rgba(255,255,255,0.65);">Locuteurs cris au Québec</p>
++          <p data-pn-spotlight="langues1Stat1" style="font-size:0.8rem;color:rgba(255,255,255,0.65);">Locuteurs cris au Québec</p>
+         </div>
+         <div style="background:rgba(139,107,20,0.2);border-radius:10px;padding:1.5rem;text-align:center;border:1px solid rgba(200,150,80,0.2);">
+           <div style="font-size:2rem;margin-bottom:0.5rem;">+0,8%</div>
+-          <p style="font-size:0.8rem;color:rgba(255,255,255,0.65);">Atikamekw — seule langue en croissance</p>
++          <p data-pn-spotlight="langues1Stat2" style="font-size:0.8rem;color:rgba(255,255,255,0.65);">Atikamekw — seule langue en croissance</p>
+         </div>
+         <div style="background:rgba(139,107,20,0.2);border-radius:10px;padding:1.5rem;text-align:center;border:1px solid rgba(200,150,80,0.2);">
+           <div style="font-size:2rem;margin-bottom:0.5rem;">1 000+</div>
+-          <p style="font-size:0.8rem;color:rgba(255,255,255,0.65);">Articles Wikipedia en atikamekw</p>
++          <p data-pn-spotlight="langues1Stat3" style="font-size:0.8rem;color:rgba(255,255,255,0.65);">Articles Wikipedia en atikamekw</p>
+         </div>
+       </div>
+     </div>
+@@ -466,19 +466,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+   <!-- ARTICLE VEDETTE : LANGUES AUTOCHTONES -->
+   <section style="padding:5rem 2rem;background:#0d0d0d;">
+     <div style="max-width:1100px;margin:0 auto;">
+-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;text-align:center;margin-bottom:0.5rem;">Les Langues Autochtones du Québec<br/><span style="color:#C8920A;">Revitalisation et Résistance</span></h2>
+-      <p style="text-align:center;color:rgba(255,255,255,0.45);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:3rem;">📅 17 mai 2026 &nbsp;·&nbsp; Culture &amp; Langue</p>
++      <h2 data-pn-spotlight="langues2Title" data-pn-spotlight-html style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;text-align:center;margin-bottom:0.5rem;">Les Langues Autochtones du Québec<br/><span style="color:#C8920A;">Revitalisation et Résistance</span></h2>
++      <p data-pn-spotlight="langues2Date" style="text-align:center;color:rgba(255,255,255,0.45);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:3rem;">📅 17 mai 2026 &nbsp;·&nbsp; Culture &amp; Langue</p>
+ 
+       <div style="background:#1a1a1a;border:1px solid rgba(200,146,10,0.3);border-radius:16px;overflow:hidden;max-width:860px;margin:0 auto 2rem;padding:2.5rem;text-align:center;">
+-        <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">Neuf langues autochtones survivent au Québec — dont certaines au bord de l'extinction. Découvrez comment les Premières Nations les revitalisent par l'immersion scolaire, les ressources numériques et la transmission intergénérationnelle.</p>
++        <p data-pn-spotlight="langues2P" style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">Neuf langues autochtones survivent au Québec — dont certaines au bord de l'extinction. Découvrez comment les Premières Nations les revitalisent par l'immersion scolaire, les ressources numériques et la transmission intergénérationnelle.</p>
+         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;max-width:400px;margin-left:auto;margin-right:auto;">
+           <div style="background:rgba(200,146,10,0.15);border:1px solid rgba(200,146,10,0.3);border-radius:8px;padding:1rem;">
+             <div style="font-size:1.8rem;color:#E8B020;font-weight:bold;">9</div>
+-            <div style="font-size:0.75rem;color:#8a7a6a;text-transform:uppercase;letter-spacing:1px;">Langues actives</div>
++            <div data-pn-spotlight="langues2StatActive" style="font-size:0.75rem;color:#8a7a6a;text-transform:uppercase;letter-spacing:1px;">Langues actives</div>
+           </div>
+           <div style="background:rgba(200,146,10,0.15);border:1px solid rgba(200,146,10,0.3);border-radius:8px;padding:1rem;">
+             <div style="font-size:1.8rem;color:#E8B020;font-weight:bold;">3</div>
+-            <div style="font-size:0.75rem;color:#8a7a6a;text-transform:uppercase;letter-spacing:1px;">Familles ling.</div>
++            <div data-pn-spotlight="langues2StatFamilies" style="font-size:0.75rem;color:#8a7a6a;text-transform:uppercase;letter-spacing:1px;">Familles ling.</div>
+           </div>
+         </div>
+         <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+@@ -492,8 +492,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+   <!-- ARTICLE VEDETTE : FEMMES AUTOCHTONES -->
+   <section style="padding:5rem 2rem;background:#0d0d0d;">
+     <div style="max-width:1100px;margin:0 auto;">
+-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;text-align:center;margin-bottom:0.5rem;">Les Femmes Autochtones du Québec<br/><span style="color:#C8920A;">Piliers, Matriarches et Résistantes</span></h2>
+-      <p style="text-align:center;color:rgba(255,255,255,0.45);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:3rem;">📅 8 mai 2026 &nbsp;·&nbsp; Société &amp; Droits</p>
++      <h2 data-pn-spotlight="femmesTitle" data-pn-spotlight-html style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;text-align:center;margin-bottom:0.5rem;">Les Femmes Autochtones du Québec<br/><span style="color:#C8920A;">Piliers, Matriarches et Résistantes</span></h2>
++      <p data-pn-spotlight="femmesDate" style="text-align:center;color:rgba(255,255,255,0.45);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:3rem;">📅 8 mai 2026 &nbsp;·&nbsp; Société &amp; Droits</p>
+ 
+       <div style="background:#1a1a1a;border:1px solid rgba(200,146,10,0.3);border-radius:16px;overflow:hidden;max-width:860px;margin:0 auto 2rem;display:flex;flex-wrap:wrap;">
+         <div style="flex:1;min-width:260px;max-width:420px;">
+@@ -502,8 +502,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                style="width:100%;height:100%;object-fit:cover;display:block;min-height:280px;" />
+         </div>
+         <div style="flex:1;min-width:260px;padding:2rem;display:flex;flex-direction:column;justify-content:center;">
+-          <span style="font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#E8B020;font-weight:700;margin-bottom:0.8rem;display:block;">✦ Article du jour</span>
+-          <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.8;margin-bottom:1.2rem;">Bien avant l'arrivée des Européens, les femmes autochtones gouvernaient, décidaient et transmettaient. Chez les Wendat et les Mohawks, elles nommaient les chefs et pouvaient les destituer. La colonisation a tenté d'effacer ce pouvoir — elles le reconquièrent.</p>
++          <span data-pn-spotlight="femmesBadge" style="font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#E8B020;font-weight:700;margin-bottom:0.8rem;display:block;">✦ Article du jour</span>
++          <p data-pn-spotlight="femmesP" style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.8;margin-bottom:1.2rem;">Bien avant l'arrivée des Européens, les femmes autochtones gouvernaient, décidaient et transmettaient. Chez les Wendat et les Mohawks, elles nommaient les chefs et pouvaient les destituer. La colonisation a tenté d'effacer ce pouvoir — elles le reconquièrent.</p>
+           <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+             <a href="FemmesAutochtones.html" style="background:#C8920A;color:#000;font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;padding:0.65rem 1.5rem;border-radius:30px;text-decoration:none;">Lire l'article →</a>
+             <a href="https://www.facebook.com/groups/1451283625021958" target="_blank" style="background:#1877F2;color:#fff;font-weight:700;font-size:0.8rem;padding:0.65rem 1.2rem;border-radius:30px;text-decoration:none;">Partager 📢</a>
+@@ -515,17 +515,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+         <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,10,0.2);">
+           <img src="https://media.base44.com/images/public/69f23c5b09417d29099136be/9af16d09b_generated_image.png"
+                alt="Conseil des femmes wendat" style="width:100%;height:160px;object-fit:cover;display:block;" />
+-          <p style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Conseil wendat — les Mères de clan désignaient les chefs</p>
++          <p data-pn-spotlight="femmesCap1" style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Conseil wendat — les Mères de clan désignaient les chefs</p>
+         </div>
+         <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,10,0.2);">
+           <img src="https://media.base44.com/images/public/69f23c5b09417d29099136be/a1484cad5_generated_image.png"
+                alt="Militante pour les femmes disparues" style="width:100%;height:160px;object-fit:cover;display:block;" />
+-          <p style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Lutte pour les femmes et filles disparues — ENFFADA</p>
++          <p data-pn-spotlight="femmesCap2" style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Lutte pour les femmes et filles disparues — ENFFADA</p>
+         </div>
+         <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,10,0.2);">
+           <img src="https://media.base44.com/images/public/69f23c5b09417d29099136be/ba24ebc77_generated_image.png"
+                alt="Aînée mohawk" style="width:100%;height:160px;object-fit:cover;display:block;" />
+-          <p style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Les aînées — gardiennes du savoir et de la mémoire</p>
++          <p data-pn-spotlight="femmesCap3" style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Les aînées — gardiennes du savoir et de la mémoire</p>
+         </div>
+       </div>
+     </div>
+@@ -534,8 +534,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+   <!-- DERNIERS ARTICLES -->
+   <section style="padding:5rem 2rem;background:#0d0d0d;">
+     <div style="max-width:1100px;margin:0 auto;">
+-      <h2 id="serie-blog" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;text-align:center;margin-bottom:0.5rem;">✦ Derniers Articles</h2>
+-      <p style="text-align:center;color:rgba(255,255,255,0.5);font-size:0.9rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem;">Art, culture et patrimoine autochtone</p>
++      <h2 data-pn-spotlight="latestTitle" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;text-align:center;margin-bottom:0.5rem;">✦ Derniers Articles</h2>
++      <p data-pn-spotlight="latestSub" style="text-align:center;color:rgba(255,255,255,0.5);font-size:0.9rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem;">Art, culture et patrimoine autochtone</p>
+       <p style="text-align:center;margin-bottom:3rem;"><a href="Articles.html" style="color:#E8B020;font-weight:700;text-decoration:none;font-size:0.95rem;" data-i18n="home.seeAllArticles">📚 Voir tous les articles (#1 à #80) →</a></p>
+ 
+       <!-- CARTE ARTICLE 58 — LA PÊCHE AUTOCHTONE -->
+@@ -544,9 +544,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+           <div style="font-size:4rem;opacity:0.6;">🎣</div>
+         </div>
+         <div style="flex:1;min-width:260px;padding:2rem;display:flex;flex-direction:column;justify-content:center;">
+-          <span style="font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#E8B020;font-weight:700;margin-bottom:0.8rem;display:block;">✦ Pêche &amp; Rivières — 24 mai 2026</span>
+-          <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:1rem;line-height:1.3;">#58 — La Pêche Autochtone — Filets, Nasses et Savoirs des Rivières</h3>
+-          <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.7;margin-bottom:1.5rem;">Les Premières Nations ont développé des techniques de pêche sophistiquées et durables, utilisant filets et nasses. Découvrez comment les peuples autochtones ont maîtrisé les eaux du Québec précolonial.</p>
++          <span data-pn-spotlight="art58Badge" style="font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#E8B020;font-weight:700;margin-bottom:0.8rem;display:block;">✦ Pêche &amp; Rivières — 24 mai 2026</span>
++          <h3 data-pn-spotlight="art58Title" style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:1rem;line-height:1.3;">#58 — La Pêche Autochtone — Filets, Nasses et Savoirs des Rivières</h3>
++          <p data-pn-spotlight="art58P" style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.7;margin-bottom:1.5rem;">Les Premières Nations ont développé des techniques de pêche sophistiquées et durables, utilisant filets et nasses. Découvrez comment les peuples autochtones ont maîtrisé les eaux du Québec précolonial.</p>
+           <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+             <a href="article58.html" style="background:#C8920A;color:#000;font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;padding:0.6rem 1.5rem;border-radius:30px;text-decoration:none;">Lire l'article →</a>
+             <a href="https://www.facebook.com/groups/1451283625021958" target="_blank" style="background:#1877F2;color:#fff;font-weight:700;font-size:0.8rem;padding:0.6rem 1.2rem;border-radius:30px;text-decoration:none;">Partager 📢</a>
+@@ -561,9 +561,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                style="width:100%;height:100%;object-fit:cover;display:block;min-height:250px;" />
+         </div>
+         <div style="flex:1;min-width:260px;padding:2rem;display:flex;flex-direction:column;justify-content:center;">
+-          <span style="font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#E8B020;font-weight:700;margin-bottom:0.8rem;display:block;">✦ Spiritualité &amp; Culture — 13 mai 2026</span>
+-          <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:1rem;line-height:1.3;">#71 — Les Cérémonies Sacrées des Peuples Autochtones du Québec</h3>
+-          <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.7;margin-bottom:1.5rem;">Pow-wow, tambour sacré, loge de sudation, quête de vision, rites de passage... Plongez au cœur de la vie spirituelle des 11 nations du Québec — et de leur renaissance aujourd'hui.</p>
++          <span data-pn-spotlight="art71Badge" style="font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#E8B020;font-weight:700;margin-bottom:0.8rem;display:block;">✦ Spiritualité &amp; Culture — 13 mai 2026</span>
++          <h3 data-pn-spotlight="art71Title" style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:1rem;line-height:1.3;">#71 — Les Cérémonies Sacrées des Peuples Autochtones du Québec</h3>
++          <p data-pn-spotlight="art71P" style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.7;margin-bottom:1.5rem;">Pow-wow, tambour sacré, loge de sudation, quête de vision, rites de passage... Plongez au cœur de la vie spirituelle des 11 nations du Québec — et de leur renaissance aujourd'hui.</p>
+           <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+             <a href="article71.html" style="background:#C8920A;color:#000;font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;padding:0.6rem 1.5rem;border-radius:30px;text-decoration:none;">Lire l'article →</a>
+             <a href="https://www.facebook.com/groups/1451283625021958" target="_blank" style="background:#1877F2;color:#fff;font-weight:700;font-size:0.8rem;padding:0.6rem 1.2rem;border-radius:30px;text-decoration:none;">Partager 📢</a>
+@@ -576,17 +576,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+         <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,10,0.2);">
+           <img src="https://media.base44.com/images/public/69f23c5b09417d29099136be/811501d8b_generated_image.png"
+                alt="Cérémonie du tambour sacré" style="width:100%;height:160px;object-fit:cover;display:block;" />
+-          <p style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Le tambour sacré — cœur de la vie spirituelle</p>
++          <p data-pn-spotlight="art71Cap1" style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Le tambour sacré — cœur de la vie spirituelle</p>
+         </div>
+         <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,10,0.2);">
+           <img src="https://media.base44.com/images/public/69f23c5b09417d29099136be/caf7ea858_generated_image.png"
+                alt="Loge de sudation autochtone" style="width:100%;height:160px;object-fit:cover;display:block;" />
+-          <p style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Loge de sudation — purification du corps et de l'âme</p>
++          <p data-pn-spotlight="art71Cap2" style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Loge de sudation — purification du corps et de l'âme</p>
+         </div>
+         <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,10,0.2);">
+           <img src="https://media.base44.com/images/public/69f23c5b09417d29099136be/8407fae80_generated_image.png"
+                alt="Transmission spirituelle aînés jeunes" style="width:100%;height:160px;object-fit:cover;display:block;" />
+-          <p style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">La transmission — l'enjeu du siècle</p>
++          <p data-pn-spotlight="art71Cap3" style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">La transmission — l'enjeu du siècle</p>
+         </div>
+       </div>
+ 
+@@ -598,9 +598,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                style="width:100%;height:100%;object-fit:cover;display:block;min-height:250px;" />
+         </div>
+         <div style="flex:1;min-width:260px;padding:2rem;display:flex;flex-direction:column;justify-content:center;">
+-          <span style="font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#E8B020;font-weight:700;margin-bottom:0.8rem;display:block;">✦ Art &amp; Culture — Mai 2026</span>
+-          <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:1rem;line-height:1.3;">L'Art des Bijoux des Premières Nations</h3>
+-          <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.7;margin-bottom:1.5rem;">Wampum, piquants de porc-épic, argent et ivoire — découvrez comment les 11 nations du Québec ont transformé les ressources du territoire en œuvres d'une beauté et d'une signification profondes.</p>
++          <span data-pn-spotlight="bijouxBadge" style="font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#E8B020;font-weight:700;margin-bottom:0.8rem;display:block;">✦ Art &amp; Culture — Mai 2026</span>
++          <h3 data-pn-spotlight="bijouxTitle" style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:1rem;line-height:1.3;">L'Art des Bijoux des Premières Nations</h3>
++          <p data-pn-spotlight="bijouxP" style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.7;margin-bottom:1.5rem;">Wampum, piquants de porc-épic, argent et ivoire — découvrez comment les 11 nations du Québec ont transformé les ressources du territoire en œuvres d'une beauté et d'une signification profondes.</p>
+           <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+             <a href="BijouxPremieresNations.html" style="background:#C8920A;color:#000;font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;padding:0.6rem 1.5rem;border-radius:30px;text-decoration:none;transition:background 0.2s;">Lire l'article →</a>
+             <a href="https://www.facebook.com/groups/1451283625021958" target="_blank" style="background:#1877F2;color:#fff;font-weight:700;font-size:0.8rem;padding:0.6rem 1.2rem;border-radius:30px;text-decoration:none;">Partager 📢</a>
+@@ -613,17 +613,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+         <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,10,0.2);">
+           <img src="https://media.base44.com/images/public/69f23c5b09417d29099136be/c1af84dd7_generated_image.png"
+                alt="Ceinture wampum haudenosaunee" style="width:100%;height:160px;object-fit:cover;display:block;" />
+-          <p style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Ceinture wampum — Mohawks</p>
++          <p data-pn-spotlight="bijouxCap1" style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Ceinture wampum — Mohawks</p>
+         </div>
+         <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,10,0.2);">
+           <img src="https://media.base44.com/images/public/69f23c5b09417d29099136be/c89b4df10_generated_image.png"
+                alt="Art du quillwork" style="width:100%;height:160px;object-fit:cover;display:block;" />
+-          <p style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Quillwork — piquants de porc-épic</p>
++          <p data-pn-spotlight="bijouxCap2" style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Quillwork — piquants de porc-épic</p>
+         </div>
+         <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,10,0.2);">
+           <img src="https://media.base44.com/images/public/69f23c5b09417d29099136be/477d4f792_generated_image.png"
+                alt="Artiste autochtone contemporaine" style="width:100%;height:160px;object-fit:cover;display:block;" />
+-          <p style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Renaissance contemporaine</p>
++          <p data-pn-spotlight="bijouxCap3" style="padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.55);text-align:center;">Renaissance contemporaine</p>
+         </div>
+       </div>
+ 
+diff --git a/Videos.html b/Videos.html
+index 6cdb9d1..94c27e2 100644
+--- a/Videos.html
++++ b/Videos.html
+@@ -145,7 +145,7 @@
+         var tpl = typeof window.pnT === 'function'
+           ? window.pnT('media.videosBadge', { n: list.length })
+           : list.length + ' vidéos';
+-        sub.textContent = tpl + ' · Documentaires · Histoires · Traditions';
++        sub.textContent = tpl + ' · ' + (typeof window.pnT === 'function' ? window.pnT('media.videosSubSuffix') : 'Documentaires · Histoires · Traditions');
+       }
+       window.pnUpdateVideosI18n = function () {
+         var lang = document.documentElement.lang;
+@@ -154,7 +154,7 @@
+           var t = typeof window.pnT === 'function'
+             ? window.pnT('media.videosBadge', { n: window.__pnVideoListLen })
+             : window.__pnVideoListLen + ' vidéos';
+-          sub.textContent = t + ' · Documentaires · Histoires · Traditions';
++          sub.textContent = t + ' · ' + (typeof window.pnT === 'function' ? window.pnT('media.videosSubSuffix') : 'Documentaires · Histoires · Traditions');
+         }
+         var cards = document.querySelectorAll('.video-card[data-pn-video-id]');
+         if (!cards.length) return;
+diff --git a/lang-switcher.js b/lang-switcher.js
+index 12f652a..427b393 100644
+--- a/lang-switcher.js
++++ b/lang-switcher.js
+@@ -247,6 +247,55 @@
+     });
+   }
+ 
++  function fetchHomeSpotlightsI18n() {
++    if (window.__pnHomeSpotlightsI18n) return Promise.resolve(window.__pnHomeSpotlightsI18n);
++    var urls = localeFetchUrls('locales/home-spotlights-i18n.json');
++    window.__pnHomeSpotlightsI18n = (function tryLoad(i) {
++      if (i >= urls.length) return Promise.resolve(null);
++      return fetch(urls[i], { cache: 'no-store' })
++        .then(function (r) {
++          if (!r.ok) throw new Error();
++          return r.json();
++        })
++        .catch(function () {
++          return tryLoad(i + 1);
++        });
++    })(0);
++    return window.__pnHomeSpotlightsI18n;
++  }
++
++  function snapshotHomeSpotlights() {
++    document.querySelectorAll('[data-pn-spotlight]').forEach(function (el) {
++      if (el.getAttribute('data-pn-fr-text') !== null) return;
++      el.setAttribute('data-pn-fr-text', el.hasAttribute('data-pn-spotlight-html') ? el.innerHTML : el.textContent);
++    });
++  }
++
++  function applyHomeSpotlights(lang) {
++    if (!document.querySelector('[data-pn-spotlight]')) return;
++    snapshotHomeSpotlights();
++    if (lang === 'fr') {
++      document.querySelectorAll('[data-pn-spotlight]').forEach(function (el) {
++        var fr = el.getAttribute('data-pn-fr-text');
++        if (fr === null) return;
++        if (el.hasAttribute('data-pn-spotlight-html')) el.innerHTML = fr;
++        else el.textContent = fr;
++      });
++      return;
++    }
++    fetchHomeSpotlightsI18n().then(function (data) {
++      if (!data || !data[lang]) return;
++      var map = data[lang];
++      document.querySelectorAll('[data-pn-spotlight]').forEach(function (el) {
++        var key = el.getAttribute('data-pn-spotlight');
++        var v = map[key];
++        if (!v) return;
++        if (el.hasAttribute('data-pn-spotlight-html')) el.innerHTML = v;
++        else el.textContent = v;
++      });
++    });
++  }
++
+   function renderSwitcher() {
+     if (document.getElementById('pn-lang-switcher')) return;
+     var wrap = document.createElement('div');
+@@ -292,6 +341,7 @@
+     if (typeof window.pnApplyNationI18n === 'function') window.pnApplyNationI18n(currentLang);
+     if (typeof window.pnApplyArticleI18n === 'function') window.pnApplyArticleI18n(currentLang);
+     if (typeof window.pnUpdateShareBar === 'function') window.pnUpdateShareBar();
++    applyHomeSpotlights(currentLang);
+   }
+ 
+   function loadAndApply(code) {
+diff --git a/locales/en.json b/locales/en.json
+index 453131a..b74b375 100644
+--- a/locales/en.json
++++ b/locales/en.json
+@@ -171,7 +171,8 @@
+     "audioBadge": "{radios} radios · {pods} podcasts · {live} live",
+     "articlesDesc": "Series #{range} — history, culture and spirituality, with read-aloud (▶ Listen).",
+     "videosDesc": "Documentaries and reports on Indigenous culture and history.",
+-    "audioDesc": "Community radio in Quebec, podcasts and live shows — listen on Audio page."
++    "audioDesc": "Community radio in Quebec, podcasts and live shows — listen on Audio page.",
++    "videosSubSuffix": "Documentaries · Stories · Traditions"
+   },
+   "quote": {
+     "text": "“These peoples do not belong to the past. They are alive, present, and their future is being built now — on the same lands they have never left.”",
+diff --git a/locales/es.json b/locales/es.json
+index f482466..5f1f9ac 100644
+--- a/locales/es.json
++++ b/locales/es.json
+@@ -171,7 +171,8 @@
+     "audioBadge": "{radios} radios · {pods} podcasts · {live} en directo",
+     "articlesDesc": "Serie #{range} — historia, cultura y espiritualidad, con lectura en voz alta (▶ Escuchar).",
+     "videosDesc": "Documentales y reportajes sobre la cultura e historia indígena.",
+-    "audioDesc": "Radios comunitarias de Québec, podcasts y emisiones en directo."
++    "audioDesc": "Radios comunitarias de Québec, podcasts y emisiones en directo.",
++    "videosSubSuffix": "Documentales · Historias · Tradiciones"
+   },
+   "quote": {
+     "text": "« Estos pueblos no pertenecen al pasado. Están vivos, presentes, y su futuro se construye ahora — en los mismos territorios que nunca abandonaron. »",
+diff --git a/locales/fr.json b/locales/fr.json
+index fb1a4db..3afe800 100644
+--- a/locales/fr.json
++++ b/locales/fr.json
+@@ -171,7 +171,8 @@
+     "audioBadge": "{radios} radios · {pods} podcasts · {live} directs",
+     "articlesDesc": "Série #{range} — histoire, culture et spiritualité, avec lecture vocale (▶ Écouter).",
+     "videosDesc": "Documentaires et reportages sur la culture et l'histoire des peuples autochtones.",
+-    "audioDesc": "Radios communautaires du Québec, balados en français et émissions en direct."
++    "audioDesc": "Radios communautaires du Québec, balados en français et émissions en direct.",
++    "videosSubSuffix": "Documentaires · Histoires · Traditions"
+   },
+   "quote": {
+     "text": "« Ces peuples n'appartiennent pas au passé. Ils sont vivants, présents, et leur avenir se construit maintenant — sur les mêmes territoires qu'ils n'ont jamais quittés. »",
+diff --git a/locales/home-spotlights-i18n.json b/locales/home-spotlights-i18n.json
+new file mode 100644
+index 0000000..c7fbeb9
+--- /dev/null
++++ b/locales/home-spotlights-i18n.json
+@@ -0,0 +1,76 @@
++{
++  "en": {
++    "langues1Title": "Indigenous Languages of Quebec<br/><span style=\"color:#C8920A;\">Revitalization and Cultural Survival</span>",
++    "langues1Date": "📅 May 12, 2026 · Language & Culture",
++    "langues1P": "Cree, Innu, Atikamekw, Mi'kmaq — millennia-old languages threatened with extinction. Communities bringing them back to life despite the legacy of residential schools and cultural assimilation.",
++    "langues1Stat1": "Cree speakers in Quebec",
++    "langues1Stat2": "Atikamekw — the only language still growing",
++    "langues1Stat3": "Wikipedia articles in Atikamekw",
++    "langues2Title": "Indigenous Languages of Quebec<br/><span style=\"color:#C8920A;\">Revitalization and Resistance</span>",
++    "langues2Date": "📅 May 17, 2026 · Culture & Language",
++    "langues2P": "Nine Indigenous languages survive in Quebec — some on the brink of extinction. Discover how First Nations revitalize them through school immersion, digital resources and intergenerational transmission.",
++    "langues2StatActive": "Active languages",
++    "langues2StatFamilies": "Language families",
++    "femmesTitle": "Indigenous Women of Quebec<br/><span style=\"color:#C8920A;\">Pillars, Matriarchs and Resisters</span>",
++    "femmesDate": "📅 May 8, 2026 · Society & Rights",
++    "femmesBadge": "✦ Featured article",
++    "femmesP": "Long before Europeans arrived, Indigenous women governed, decided and transmitted knowledge. Among the Wendat and Mohawks, they named chiefs and could remove them. Colonization tried to erase that power — they are reclaiming it.",
++    "femmesCap1": "Wendat council — Clan Mothers appointed the chiefs",
++    "femmesCap2": "Fight for missing and murdered women — MMIWG",
++    "femmesCap3": "Elders — keepers of knowledge and memory",
++    "latestTitle": "✦ Latest Articles",
++    "latestSub": "Indigenous art, culture and heritage",
++    "art58Badge": "✦ Fishing & Rivers — May 24, 2026",
++    "art58Title": "#58 — Indigenous Fishing — Nets, Traps and River Knowledge",
++    "art58P": "First Nations developed sophisticated, sustainable fishing techniques using nets and traps. Discover how Indigenous peoples mastered the waters of pre-colonial Quebec.",
++    "art71Badge": "✦ Spirituality & Culture — May 13, 2026",
++    "art71Title": "#71 — Sacred Ceremonies of the Indigenous Peoples of Quebec",
++    "art71P": "Pow-wow, sacred drum, sweat lodge, vision quest, rites of passage… Explore the spiritual life of Quebec's 11 nations — and their renewal today.",
++    "art71Cap1": "The sacred drum — heart of spiritual life",
++    "art71Cap2": "Sweat lodge — purification of body and soul",
++    "art71Cap3": "Transmission — the challenge of our time",
++    "bijouxBadge": "✦ Art & Culture — May 2026",
++    "bijouxTitle": "The Art of First Nations Jewelry",
++    "bijouxP": "Wampum, porcupine quills, silver and ivory — discover how Quebec's 11 nations transformed the resources of the land into works of profound beauty and meaning.",
++    "bijouxCap1": "Wampum belt — Mohawks",
++    "bijouxCap2": "Quillwork — porcupine quills",
++    "bijouxCap3": "Contemporary renaissance"
++  },
++  "es": {
++    "langues1Title": "Las lenguas indígenas de Québec<br/><span style=\"color:#C8920A;\">Revitalización y supervivencia cultural</span>",
++    "langues1Date": "📅 12 de mayo de 2026 · Idioma y cultura",
++    "langues1P": "Cree, innu, atikamekw, mi'kmaq — lenguas milenarias amenazadas de extinción. Comunidades que las devuelven a la vida a pesar de las secuelas de los internados y la asimilación cultural.",
++    "langues1Stat1": "Hablantes de cree en Québec",
++    "langues1Stat2": "Atikamekw — la única lengua en crecimiento",
++    "langues1Stat3": "Artículos de Wikipedia en atikamekw",
++    "langues2Title": "Las lenguas indígenas de Québec<br/><span style=\"color:#C8920A;\">Revitalización y resistencia</span>",
++    "langues2Date": "📅 17 de mayo de 2026 · Cultura e idioma",
++    "langues2P": "Nueve lenguas indígenas sobreviven en Québec — algunas al borde de la extinción. Descubra cómo las Primeras Naciones las revitalizan mediante inmersión escolar, recursos digitales y transmisión intergeneracional.",
++    "langues2StatActive": "Lenguas activas",
++    "langues2StatFamilies": "Familias lingüísticas",
++    "femmesTitle": "Las mujeres indígenas de Québec<br/><span style=\"color:#C8920A;\">Pilares, matriarcas y resistentes</span>",
++    "femmesDate": "📅 8 de mayo de 2026 · Sociedad y derechos",
++    "femmesBadge": "✦ Artículo destacado",
++    "femmesP": "Mucho antes de la llegada de los europeos, las mujeres indígenas gobernaban, decidían y transmitían. Entre los wendat y los mohawks, nombraban a los jefes y podían destituirlos. La colonización intentó borrar ese poder — ellas lo reconquistan.",
++    "femmesCap1": "Consejo wendat — las Madres del clan designaban a los jefes",
++    "femmesCap2": "Lucha por las mujeres y niñas desaparecidas — MMIWG",
++    "femmesCap3": "Las ancianas — guardianas del saber y la memoria",
++    "latestTitle": "✦ Últimos artículos",
++    "latestSub": "Arte, cultura y patrimonio indígena",
++    "art58Badge": "✦ Pesca y ríos — 24 de mayo de 2026",
++    "art58Title": "#58 — La pesca indígena — Redes, nasas y saberes de los ríos",
++    "art58P": "Las Primeras Naciones desarrollaron técnicas de pesca sofisticadas y sostenibles con redes y nasas. Descubra cómo los pueblos indígenas dominaron las aguas del Québec precolonial.",
++    "art71Badge": "✦ Espiritualidad y cultura — 13 de mayo de 2026",
++    "art71Title": "#71 — Las ceremonias sagradas de los pueblos indígenas de Québec",
++    "art71P": "Pow-wow, tambor sagrado, lodge de sudación, búsqueda de visión, ritos de paso… Sumérjase en la vida espiritual de las 11 naciones de Québec — y su renacimiento hoy.",
++    "art71Cap1": "El tambor sagrado — corazón de la vida espiritual",
++    "art71Cap2": "Lodge de sudación — purificación del cuerpo y del alma",
++    "art71Cap3": "La transmisión — el reto del siglo",
++    "bijouxBadge": "✦ Arte y cultura — Mayo 2026",
++    "bijouxTitle": "El arte de las joyas de las Primeras Naciones",
++    "bijouxP": "Wampum, púas de puercoespín, plata y marfil — descubra cómo las 11 naciones de Québec transformaron los recursos del territorio en obras de profunda belleza y significado.",
++    "bijouxCap1": "Cinturón wampum — Mohawks",
++    "bijouxCap2": "Quillwork — púas de puercoespín",
++    "bijouxCap3": "Renacimiento contemporáneo"
++  }
++}
+-- 
+2.43.0
+

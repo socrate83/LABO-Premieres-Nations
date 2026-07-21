@@ -1,0 +1,220 @@
+From 6d42ad6b8d3a6e67ce524a3971e9bfba0481e1e6 Mon Sep 17 00:00:00 2001
+From: Cursor Agent <cursoragent@cursor.com>
+Date: Tue, 21 Jul 2026 13:11:11 +0000
+Subject: [PATCH 1/2] =?UTF-8?q?Corriger=20traductions=20apr=C3=A8s=20les?=
+ =?UTF-8?q?=20articles=20sur=20Home.html?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- Brancher communauté, citation et pied de page (data-i18n FR/EN/ES)
+- Corriger menu Articles EN/ES via nav.articles (plus de mélange)
+- Traduire boutons Lire l'article et Partager sur la page d'accueil
+---
+ Home.html        | 32 ++++++++++++++++----------------
+ lang-switcher.js | 14 ++++++++++++++
+ locales/en.json  | 15 ++++++++++++++-
+ locales/es.json  | 15 ++++++++++++++-
+ locales/fr.json  | 15 ++++++++++++++-
+ 5 files changed, 72 insertions(+), 19 deletions(-)
+
+diff --git a/Home.html b/Home.html
+index 4e68a02..2a3b480 100644
+--- a/Home.html
++++ b/Home.html
+@@ -632,13 +632,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ 
+   <!-- COMMUNITY BAR -->
+   <section class="community-bar">
+-    <h3>🤝 Rejoignez la communauté</h3>
+-    <p>Partagez ces articles, discutez, découvrez davantage sur les peuples autochtones du Québec. Rejoignez notre groupe Facebook ou visitez le site de la série.</p>
++    <h3 data-i18n="home.communityTitle">🤝 Rejoignez la communauté</h3>
++    <p data-i18n="home.communityP">Partagez ces articles, discutez, découvrez davantage sur les peuples autochtones du Québec. Rejoignez notre groupe Facebook ou visitez le site de la série.</p>
+     <div class="community-links">
+-      <a class="btn-fb" href="https://www.facebook.com/groups/1451283625021958" target="_blank">
++      <a class="btn-fb" href="https://www.facebook.com/groups/1451283625021958" target="_blank" data-i18n="home.communityFb">
+         📘 Rejoindre le groupe Facebook
+       </a>
+-      <a class="btn-site" href="https://lucie-app-5fea0268.base44.app" target="_blank">
++      <a class="btn-site" href="https://lucie-app-5fea0268.base44.app" target="_blank" data-i18n="home.communitySite">
+         🌐 Site de la série
+       </a>
+     </div>
+@@ -646,18 +646,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ 
+   <!-- QUOTE -->
+   <section class="quote-sec">
+-    <blockquote>« Ces peuples n'appartiennent pas au passé. Ils sont vivants, présents, et leur avenir se construit maintenant — sur les mêmes territoires qu'ils n'ont jamais quittés. »</blockquote>
+-    <p class="quote-src">— Série « Peuples Autochtones du Québec »</p>
++    <blockquote data-i18n="quote.text">« Ces peuples n'appartiennent pas au passé. Ils sont vivants, présents, et leur avenir se construit maintenant — sur les mêmes territoires qu'ils n'ont jamais quittés. »</blockquote>
++    <p class="quote-src" data-i18n="quote.src">— Série « Peuples Autochtones du Québec »</p>
+   </section>
+ 
+   <!-- FOOTER -->
+   <footer>
+ 
+     <div class="visit-counter">
+-      👁 Visites sur cet appareil : <span id="visit-count">…</span>
++      <span data-i18n="footer.visits">👁 Visites sur cet appareil :</span> <span id="visit-count">…</span>
+     </div>
+-    <h3>Peuples Autochtones du Québec</h3>
+-    <p>Cette série d'articles a été réalisée avec respect pour chacune des nations présentées. Elle vise à faire connaître leur histoire remarquable au grand public québécois et international.</p>
++    <h3 data-i18n="footer.title">Peuples Autochtones du Québec</h3>
++    <p data-i18n="footer.p">Cette série d'articles a été réalisée avec respect pour chacune des nations présentées. Elle vise à faire connaître leur histoire remarquable au grand public québécois et international.</p>
+     <nav class="footer-nav">
+       <a href="Abenaquis.html" >Abénaquis</a>
+       <a href="Algonquins.html" >Algonquins</a>
+@@ -672,12 +672,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+       <a href="Inuits.html" >Inuit</a>
+     </nav>
+     <div class="footer-social">
+-      <a href="https://www.facebook.com/groups/1451283625021958" target="_blank">📘 Groupe Facebook</a>
+-      <a href="https://lucie-app-5fea0268.base44.app" target="_blank">🌐 Site de la série</a>
++      <a href="https://www.facebook.com/groups/1451283625021958" target="_blank" data-i18n="footer.fb">📘 Groupe Facebook</a>
++      <a href="https://lucie-app-5fea0268.base44.app" target="_blank" data-i18n="footer.site">🌐 Site de la série</a>
+     </div>
+     <p>🌐 <a href="https://tourismeautochtone.com" target="_blank">tourismeautochtone.com</a> · <a href="https://www.quebec.ca/gouvernement/portrait-quebec/premieres-nations-inuits" target="_blank">Gouvernement du Québec</a></p>
+-    <h3 style="margin-top:2rem;">❓ Foire aux questions</h3>
+-    <p class="copy">FAQ · Série réalisée avec Lucie · Contenu à visée éducative · 2026</p>
++    <h3 style="margin-top:2rem;" data-i18n="footer.faq">❓ Foire aux questions</h3>
++    <p class="copy" data-i18n="footer.copy">FAQ · Série réalisée avec Lucie · Contenu à visée éducative · 2026</p>
+   </footer>
+ 
+   <script>
+@@ -877,9 +877,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+         });
+         var navArt = document.querySelector('.top-nav a[data-i18n="nav.articles"]');
+         if (navArt && window.__serieArticlesNumbered) {
+-          var langNav = localStorage.getItem('pnq_lang') || 'fr';
+-          var prefix = langNav === 'es' ? '📚 Artículos 1–' : '📚 Articles 1–';
+-          navArt.textContent = prefix + window.__serieArticlesNumbered;
++          var Tnav = typeof window.pnT === 'function' ? window.pnT : null;
++          var tpl = Tnav ? Tnav('nav.articles') : '📚 Articles 1–80';
++          navArt.textContent = tpl.replace(/1–\d+/, '1–' + window.__serieArticlesNumbered);
+         }
+         if (window.location.hash === '#serie-blog') {
+           requestAnimationFrame(function () {
+diff --git a/lang-switcher.js b/lang-switcher.js
+index a93ca52..12f652a 100644
+--- a/lang-switcher.js
++++ b/lang-switcher.js
+@@ -130,6 +130,20 @@
+       var serieRead = get(T, 'home.serieRead');
+       if (serieRead) el.textContent = serieRead;
+     });
++    var shareLabel = get(T, 'common.share');
++    if (shareLabel) {
++      document.querySelectorAll('a[href*="facebook.com/groups"]').forEach(function (el) {
++        if (/Partager|Share|Compartir/i.test(el.textContent)) {
++          el.textContent = shareLabel + ' 📢';
++        }
++      });
++    }
++    document.querySelectorAll('a[href$=".html"]').forEach(function (el) {
++      if (/Lire l.article|Read article|Leer art/i.test(el.textContent)) {
++        var serieRead = get(T, 'home.serieRead');
++        if (serieRead) el.textContent = serieRead + ' →';
++      }
++    });
+   }
+ 
+   function injectArticleNotice() {
+diff --git a/locales/en.json b/locales/en.json
+index 2711e67..453131a 100644
+--- a/locales/en.json
++++ b/locales/en.json
+@@ -46,7 +46,7 @@
+     "mediaVideos": "Videos",
+     "mediaAudio": "Audio",
+     "communityTitle": "🤝 Join the community",
+-    "communityP": "Share these articles, discuss, and learn more about Indigenous peoples in Quebec.",
++    "communityP": "Share these articles, discuss, and learn more about Indigenous peoples in Quebec. Join our Facebook group or visit the series website.",
+     "communityFb": "📘 Join the Facebook group",
+     "communitySite": "🌐 Series website",
+     "seeAllArticles": "📚 See all articles (#1 to #80) →",
+@@ -172,5 +172,18 @@
+     "articlesDesc": "Series #{range} — history, culture and spirituality, with read-aloud (▶ Listen).",
+     "videosDesc": "Documentaries and reports on Indigenous culture and history.",
+     "audioDesc": "Community radio in Quebec, podcasts and live shows — listen on Audio page."
++  },
++  "quote": {
++    "text": "“These peoples do not belong to the past. They are alive, present, and their future is being built now — on the same lands they have never left.”",
++    "src": "— Series “Indigenous Peoples of Quebec”"
++  },
++  "footer": {
++    "visits": "👁 Visits on this device:",
++    "title": "Indigenous Peoples of Quebec",
++    "p": "This article series was produced with respect for each nation presented. It aims to share their remarkable history with Quebec and international audiences.",
++    "fb": "📘 Facebook group",
++    "site": "🌐 Series website",
++    "faq": "❓ Frequently asked questions",
++    "copy": "FAQ · Series produced with Lucie · Educational content · 2026"
+   }
+ }
+diff --git a/locales/es.json b/locales/es.json
+index 36f3e4a..f482466 100644
+--- a/locales/es.json
++++ b/locales/es.json
+@@ -46,7 +46,7 @@
+     "mediaVideos": "Videos",
+     "mediaAudio": "Audio",
+     "communityTitle": "🤝 Únase a la comunidad",
+-    "communityP": "Comparta estos artículos, comente y descubra más sobre los pueblos indígenas de Québec.",
++    "communityP": "Comparta estos artículos, comente y descubra más sobre los pueblos indígenas de Québec. Únase a nuestro grupo de Facebook o visite el sitio de la serie.",
+     "communityFb": "📘 Unirse al grupo de Facebook",
+     "communitySite": "🌐 Sitio de la serie",
+     "seeAllArticles": "📚 Ver todos los artículos (#1 a #80) →",
+@@ -172,5 +172,18 @@
+     "articlesDesc": "Serie #{range} — historia, cultura y espiritualidad, con lectura en voz alta (▶ Escuchar).",
+     "videosDesc": "Documentales y reportajes sobre la cultura e historia indígena.",
+     "audioDesc": "Radios comunitarias de Québec, podcasts y emisiones en directo."
++  },
++  "quote": {
++    "text": "« Estos pueblos no pertenecen al pasado. Están vivos, presentes, y su futuro se construye ahora — en los mismos territorios que nunca abandonaron. »",
++    "src": "— Serie « Pueblos indígenas de Québec »"
++  },
++  "footer": {
++    "visits": "👁 Visitas en este dispositivo:",
++    "title": "Pueblos indígenas de Québec",
++    "p": "Esta serie de artículos fue realizada con respeto por cada nación presentada. Busca dar a conocer su historia al público de Québec e internacional.",
++    "fb": "📘 Grupo de Facebook",
++    "site": "🌐 Sitio de la serie",
++    "faq": "❓ Preguntas frecuentes",
++    "copy": "FAQ · Serie realizada con Lucie · Contenido educativo · 2026"
+   }
+ }
+diff --git a/locales/fr.json b/locales/fr.json
+index 0bbce3f..fb1a4db 100644
+--- a/locales/fr.json
++++ b/locales/fr.json
+@@ -46,7 +46,7 @@
+     "mediaVideos": "Vidéos",
+     "mediaAudio": "Audio",
+     "communityTitle": "🤝 Rejoignez la communauté",
+-    "communityP": "Partagez ces articles, discutez, découvrez davantage sur les peuples autochtones du Québec.",
++    "communityP": "Partagez ces articles, discutez, découvrez davantage sur les peuples autochtones du Québec. Rejoignez notre groupe Facebook ou visitez le site de la série.",
+     "communityFb": "📘 Rejoindre le groupe Facebook",
+     "communitySite": "🌐 Site de la série",
+     "seeAllArticles": "📚 Voir tous les articles (#1 à #80) →",
+@@ -172,5 +172,18 @@
+     "articlesDesc": "Série #{range} — histoire, culture et spiritualité, avec lecture vocale (▶ Écouter).",
+     "videosDesc": "Documentaires et reportages sur la culture et l'histoire des peuples autochtones.",
+     "audioDesc": "Radios communautaires du Québec, balados en français et émissions en direct."
++  },
++  "quote": {
++    "text": "« Ces peuples n'appartiennent pas au passé. Ils sont vivants, présents, et leur avenir se construit maintenant — sur les mêmes territoires qu'ils n'ont jamais quittés. »",
++    "src": "— Série « Peuples Autochtones du Québec »"
++  },
++  "footer": {
++    "visits": "👁 Visites sur cet appareil :",
++    "title": "Peuples Autochtones du Québec",
++    "p": "Cette série d'articles a été réalisée avec respect pour chacune des nations présentées. Elle vise à faire connaître leur histoire remarquable au grand public québécois et international.",
++    "fb": "📘 Groupe Facebook",
++    "site": "🌐 Site de la série",
++    "faq": "❓ Foire aux questions",
++    "copy": "FAQ · Série réalisée avec Lucie · Contenu à visée éducative · 2026"
+   }
+ }
+-- 
+2.43.0
+
