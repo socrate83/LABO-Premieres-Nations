@@ -1,0 +1,63 @@
+# Déploie les traductions accueil (EN/ES) vers premieres-nations-quebec
+# Déclenchement : manuel (Actions → Deploy PNQ i18n → Run workflow)
+name: Deploy PNQ i18n
+
+on:
+  workflow_dispatch:
+    inputs:
+      github_pat:
+        description: "Token GitHub (repo) — laisse vide si secret PNQ_PUSH_TOKEN est configuré"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout LABO (patches + fichiers)
+        uses: actions/checkout@v4
+
+      - name: Checkout site PNQ
+        uses: actions/checkout@v4
+        with:
+          repository: socrate83/premieres-nations-quebec
+          token: ${{ inputs.github_pat || secrets.PNQ_PUSH_TOKEN }}
+          path: pnq
+
+      - name: Appliquer les fichiers traduits
+        run: |
+          set -euo pipefail
+          SRC="docs/pnq-i18n-patch/files"
+          cp -f "$SRC/Home.html" "$SRC/Videos.html" "$SRC/lang-switcher.js" pnq/
+          cp -f "$SRC/locales/fr.json" "$SRC/locales/en.json" "$SRC/locales/es.json" pnq/locales/
+          cp -f "$SRC/locales/home-spotlights-i18n.json" pnq/locales/
+
+      - name: Commit et push sur main PNQ
+        working-directory: pnq
+        env:
+          PUSH_TOKEN: ${{ inputs.github_pat || secrets.PNQ_PUSH_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PUSH_TOKEN:-}" ]; then
+            echo "::error::Aucun token. Ajoutez le secret PNQ_PUSH_TOKEN dans LABO, ou collez un PAT dans le champ github_pat."
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Home.html Videos.html lang-switcher.js locales/fr.json locales/en.json locales/es.json locales/home-spotlights-i18n.json
+          if git diff --cached --quiet; then
+            echo "Rien à publier — déjà à jour sur GitHub."
+            exit 0
+          fi
+          git commit -m "Traduire accueil après les articles (FR/EN/ES)
+
+Appliqué depuis LABO-Premieres-Nations (workflow deploy-pnq-i18n)."
+          git push "https://x-access-token:${PUSH_TOKEN}@github.com/socrate83/premieres-nations-quebec.git" HEAD:main
+
+      - name: Site live
+        run: |
+          echo "Site : https://socrate83.github.io/premieres-nations-quebec/Home.html"
+          echo "Test : EN ou ES → descendre après les articles"

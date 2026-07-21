@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "siteTitle": "Peuples Autochtones du Québec — Les 11 Premières Nations",
+    "siteDescription": "Histoire, culture et langues des 11 nations autochtones et des Inuit du Québec."
+  },
+  "lang": {
+    "label": "Langue",
+    "fr": "FR",
+    "en": "EN",
+    "es": "ES"
+  },
+  "nav": {
+    "home": "🏠 Accueil",
+    "articles": "📚 Articles 1–80",
+    "nations": "📰 Nations",
+    "videos": "🎬 Vidéos",
+    "audio": "📻 Audio",
+    "podcasts": "🎙️ Podcasts",
+    "backHome": "← Accueil",
+    "allArticles": "📚 Tous les articles (1–80)"
+  },
+  "home": {
+    "heroEyebrow": "Série complète · 11 nations + Inuit",
+    "heroTitle": "Peuples<br/>Autochtones<br/>du <span>Québec</span>",
+    "heroSub": "Une série d'articles approfondis sur les Premières Nations et les Inuit qui habitent le territoire québécois depuis des millénaires.",
+    "heroCta": "Découvrir les nations →",
+    "heroScroll": "↓ Explorer",
+    "statFN": "Premières Nations",
+    "statInuit": "Nation Inuit",
+    "statPop": "Autochtones au Québec",
+    "statYears": "de présence sur ce territoire",
+    "introTitle": "Une histoire qui commence bien avant le Québec",
+    "introP1": "Bien avant que Jacques Cartier n'aperçoive les rives du Saint-Laurent en 1534, des dizaines de nations autochtones habitaient ce territoire depuis des millénaires. Chasseurs, agriculteurs, navigateurs, diplomates — chaque peuple a développé une civilisation unique, adaptée à son territoire, profondément liée à la nature et transmise par une tradition orale d'une richesse extraordinaire.",
+    "introP2": "Cette série d'articles vous invite à découvrir les 11 Premières Nations et les Inuit du Nunavik — leur histoire, leur culture, leurs traditions et leur place dans le Québec d'aujourd'hui. Une invitation au respect et à la connaissance.",
+    "nationsTitle": "Les Nations",
+    "nationsSub": "Cliquez sur une nation pour lire son article",
+    "serieTitle": "Série thématique — Les articles (80)",
+    "serieSub": "8 séries de dix articles (#1 à #80) : spiritualité, histoire, savoir-faire québécois, Sagesse Oubliée, culture vivante… Chaque carte ouvre l'article complet.",
+    "serieNotice": "Tous les articles au même endroit. Série 1 (#1–#10) à Série 8 (#71–#80) — lecture vocale sur chaque page.",
+    "serieNoticeLink": "Liste complète →",
+    "serieFeatured": "Coup de cœur",
+    "serieRead": "Lire l'article",
+    "mediaTitle": "Médiathèque",
+    "mediaSub": "Articles · Vidéos · Audio",
+    "mediaArticles": "Articles",
+    "mediaVideos": "Vidéos",
+    "mediaAudio": "Audio",
+    "communityTitle": "🤝 Rejoignez la communauté",
+    "communityP": "Partagez ces articles, discutez, découvrez davantage sur les peuples autochtones du Québec. Rejoignez notre groupe Facebook ou visitez le site de la série.",
+    "communityFb": "📘 Rejoindre le groupe Facebook",
+    "communitySite": "🌐 Site de la série",
+    "seeAllArticles": "📚 Voir tous les articles (#1 à #80) →",
+    "nationCards": {
+      "abenaquis": {
+        "tag": "Algonquienne · Montérégie",
+        "name": "Les Abénaquis",
+        "desc": "Wôbanakiak — « Peuple de l'aube »",
+        "alt": "Abénaquis"
+      },
+      "algonquins": {
+        "tag": "Algonquienne · Outaouais & Laurentides",
+        "name": "Les Algonquins",
+        "desc": "Anishinaabe — Gardiens de la rivière des Outaouais",
+        "alt": "Algonquins"
+      },
+      "atikamekw": {
+        "tag": "Algonquienne · Haute-Mauricie",
+        "name": "Les Atikamekw",
+        "desc": "Nehirowisiwok — Peuple du Nitaskinan",
+        "alt": "Atikamekw"
+      },
+      "cris": {
+        "tag": "Algonquienne · Baie-James",
+        "name": "Les Cris",
+        "desc": "Eeyou — Peuple de la Baie-James",
+        "alt": "Cris"
+      },
+      "huronswendat": {
+        "tag": "Iroquoienne · Wendake · Québec",
+        "name": "Les Hurons-Wendat",
+        "desc": "Wendat — Gardiens du feu, peuple de l'île",
+        "alt": "Hurons-Wendat"
+      },
+      "innus": {
+        "tag": "Algonquienne · Côte-Nord",
+        "name": "Les Innus",
+        "desc": "Innu — « Être humain » · Peuple du Nitassinan",
+        "alt": "Innus"
+      },
+      "malecites": {
+        "tag": "Algonquienne · Bas-Saint-Laurent",
+        "name": "Les Malécites",
+        "desc": "Wolastoqiyik — Peuple de la belle rivière",
+        "alt": "Malécites"
+      },
+      "micmacs": {
+        "tag": "Algonquienne · Gaspésie",
+        "name": "Les Micmacs",
+        "desc": "Mi'kmaq — « Mes amis » · Gardiens de Gespeg",
+        "alt": "Micmacs"
+      },
+      "mohawks": {
+        "tag": "Iroquoienne · Vallée du Saint-Laurent",
+        "name": "Les Mohawks",
+        "desc": "Kanien'kehá:ka — Peuple du pays du silex",
+        "alt": "Mohawks"
+      },
+      "naskapis": {
+        "tag": "Algonquienne · Labrador québécois",
+        "name": "Les Naskapis",
+        "desc": "Gens des confins — Gardiens du caribou nordique",
+        "alt": "Naskapis"
+      },
+      "inuit": {
+        "tag": "Inuit · Nunavik · Grand Nord",
+        "name": "Les Inuit",
+        "desc": "Inuit — « Êtres humains » · Gardiens du Nunavik",
+        "alt": "Inuit"
+      }
+    }
+  },
+  "articlesPage": {
+    "title": "📚 Tous les articles",
+    "intro": "Série numérotée #1 à #80 — chaque article propose la lecture vocale (▶ Écouter).",
+    "metaTitle": "Tous les articles (1–80) — Premières Nations du Québec",
+    "seriesHeading": "Série {num} — articles {start} à {end}"
+  },
+  "videosPage": {
+    "title": "🎬 Vidéos",
+    "header": "Médiathèque",
+    "sub": "Les Premières Nations du Québec — documentaires et reportages.",
+    "sectionTitle": "Toutes les nations",
+    "loading": "Chargement des vidéos…",
+    "metaTitle": "Vidéos — Premières Nations du Québec"
+  },
+  "audioPage": {
+    "title": "📻 Radios autochtones du Québec",
+    "header": "Médiathèque · Voix des nations",
+    "metaTitle": "Radios autochtones du Québec — Premières Nations"
+  },
+  "podcastsPage": {
+    "title": "🎙️ Podcasts & émissions en direct",
+    "metaTitle": "Podcasts — Premières Nations (français)",
+    "sub": "Écoutez ici le dernier épisode quand le flux le permet, ou ouvrez le <strong>dossier de téléchargement</strong> sur la plateforme officielle de chaque créateur.",
+    "banner": "<strong>📁 Dossier de téléchargement :</strong> les épisodes ne sont pas hébergés sur ce site (droits d'auteur). Chaque carte propose un lien <strong>« Télécharger / tous les épisodes »</strong> vers OHdio, BaladoQuébec, Podbean, Canal M, etc., où vous pouvez enregistrer les MP3 officiellement.",
+    "liveTitle": "🔴 En direct ou presque en direct",
+    "podTitle": "📻 Balados & chroniques (à la demande)"
+  },
+  "nationShare": {
+    "title": "📢 Partager cet article",
+    "facebook": "📘 Facebook",
+    "groupFb": "👥 Groupe FB",
+    "messenger": "💬 Messenger",
+    "whatsapp": "🟢 WhatsApp",
+    "email": "📧 Courriel",
+    "copyLink": "🔗 Copier le lien",
+    "linkCopied": "✅ Lien copié !",
+    "legendesTitle": "Légendes, histoires et anecdotes"
+  },
+  "common": {
+    "read": "📖 Lire",
+    "listen": "▶ Écouter",
+    "share": "Partager",
+    "articleNotice": "Traduction non disponible pour cet article. Le texte reste en français.",
+    "nationNotice": "Titres, navigation et introduction sont traduits ; le corps détaillé de la page reste en français.",
+    "machineTranslationNotice": "Traduction automatique du texte — la version française fait foi."
+  },
+  "media": {
+    "articlesBadge": "{n} articles",
+    "videosBadge": "{n} vidéos",
+    "audioBadge": "{radios} radios · {pods} podcasts · {live} directs",
+    "articlesDesc": "Série #{range} — histoire, culture et spiritualité, avec lecture vocale (▶ Écouter).",
+    "videosDesc": "Documentaires et reportages sur la culture et l'histoire des peuples autochtones.",
+    "audioDesc": "Radios communautaires du Québec, balados en français et émissions en direct.",
+    "videosSubSuffix": "Documentaires · Histoires · Traditions"
+  },
+  "quote": {
+    "text": "« Ces peuples n'appartiennent pas au passé. Ils sont vivants, présents, et leur avenir se construit maintenant — sur les mêmes territoires qu'ils n'ont jamais quittés. »",
+    "src": "— Série « Peuples Autochtones du Québec »"
+  },
+  "footer": {
+    "visits": "👁 Visites sur cet appareil :",
+    "title": "Peuples Autochtones du Québec",
+    "p": "Cette série d'articles a été réalisée avec respect pour chacune des nations présentées. Elle vise à faire connaître leur histoire remarquable au grand public québécois et international.",
+    "fb": "📘 Groupe Facebook",
+    "site": "🌐 Site de la série",
+    "faq": "❓ Foire aux questions",
+    "copy": "FAQ · Série réalisée avec Lucie · Contenu à visée éducative · 2026"
+  }
+}

@@ -60,6 +60,16 @@ python -m http.server 8081
 
 Puis ouvre : http://localhost:8081
 
+## Traductions site principal (PNQ)
+
+Les fichiers corrigés sont dans `docs/pnq-i18n-patch/files/`.
+
+**Publier sur le site live :** double-clic **`APPLIQUER-TRADUCTIONS-PNQ.bat`** (après `git pull`).
+
+Ou GitHub Actions : [Deploy PNQ i18n](https://github.com/socrate83/LABO-Premieres-Nations/actions/workflows/deploy-pnq-i18n.yml)
+
+Voir `docs/pnq-i18n-patch/LISEZMOI.md`.
+
 ## Dépannage
 
 | Problème | Solution |

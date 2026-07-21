@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="msvalidate.01" content="10222E796BE2EE4F0FC763A4635F65FE"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vidéos — Les Premières Nations du Québec</title>
+  <meta name="description" content="Regardez nos vidéos sur les 11 nations autochtones du Québec : documentaires, témoignages et découvertes culturelles."/>
+  <meta name="keywords" content="vidéos autochtones, documentaires Premières Nations, culture amérindienne, Québec, YouTube"/>
+  <meta name="author" content="Jean-Claude Bescher"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="Vidéos — Les Premières Nations du Québec"/>
+  <meta property="og:description" content="Regardez nos vidéos sur les 11 nations autochtones du Québec : documentaires, témoignages et découvertes culturelles."/>
+  <meta property="og:url" content="https://socrate83.github.io/premieres-nations-quebec/Videos.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="fr_FR"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Vidéos — Les Premières Nations du Québec"/>
+  <meta name="twitter:description" content="Regardez nos vidéos sur les 11 nations autochtones du Québec : documentaires, témoignages et découvertes culturelles."/>
+  <meta name="twitter:site" content="@JeanClaude89628"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap');
+    :root{
+      --noir:#0A0A0A;
+      --sombre:#141414;
+      --or:#C8920A;
+      --or-clair:#E8B020;
+      --rouge:#8B2E2E;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%;overflow-y:auto;scroll-behavior:smooth}
+    body{font-family:'Lato',sans-serif;background:var(--noir);color:#fff}
+
+    /* HEADER */
+    .page-header{background:linear-gradient(135deg,#1a0a00,#0a0a1a);padding:5rem 2rem 4rem;text-align:center;border-bottom:1px solid rgba(200,146,10,0.2)}
+    .page-header .eyebrow{font-size:0.78rem;letter-spacing:5px;text-transform:uppercase;color:var(--or-clair);font-weight:700;margin-bottom:1rem}
+    .page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:#fff;margin-bottom:1rem}
+    .page-header p{font-size:1.05rem;color:rgba(255,255,255,0.65);max-width:620px;margin:0 auto;line-height:1.8}
+    .gold-line{width:56px;height:4px;background:linear-gradient(to right,var(--rouge),var(--or));margin:1.5rem auto 0;border-radius:2px}
+
+    /* NAV */
+    .top-nav{background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;top:0;z-index:100}
+    .top-nav a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;transition:color 0.2s}
+    .top-nav a:hover,.top-nav a.active{color:var(--or-clair)}
+
+    /* GRID */
+    .videos-section{padding:4rem 2rem;max-width:1200px;margin:0 auto}
+    .section-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--or-clair);margin-bottom:0.5rem}
+    .section-sub{color:rgba(255,255,255,0.45);font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:2.5rem}
+    .videos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem}
+
+    /* VIDEO CARD */
+    .video-card{background:#1A1A1A;border-radius:16px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;border:1px solid rgba(255,255,255,0.06)}
+    .video-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+    .video-embed{position:relative;padding-top:56.25%;background:#000}
+    .video-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+    .video-info{padding:1.2rem 1.4rem 1.4rem}
+    .video-tag{font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--or-clair);font-weight:700;margin-bottom:0.4rem}
+    .video-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;line-height:1.3;margin-bottom:0.5rem}
+    .video-desc{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.6}
+
+    /* YOUTUBE BANNER */
+    .yt-banner{background:linear-gradient(135deg,#1a0000,#0a0000);border:1px solid rgba(255,50,50,0.2);border-radius:16px;padding:2.5rem;text-align:center;margin:3rem auto;max-width:700px}
+    .yt-banner h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:0.8rem}
+    .yt-banner p{color:rgba(255,255,255,0.6);font-size:0.95rem;margin-bottom:1.5rem;line-height:1.7}
+    .btn-yt{display:inline-flex;align-items:center;gap:0.6rem;background:#FF0000;color:#fff;font-weight:700;font-size:0.88rem;padding:0.85rem 2rem;border-radius:50px;text-decoration:none;transition:background 0.2s,transform 0.2s}
+    .btn-yt:hover{background:#cc0000;transform:translateY(-2px)}
+
+    /* FOOTER */
+    footer{background:#050505;padding:3rem 2rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+    footer p{font-size:0.85rem;color:rgba(255,255,255,0.35);line-height:1.8}
+    footer a{color:var(--or-clair);text-decoration:none}
+    footer a:hover{color:#fff}
+    .footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem;margin:1.5rem 0}
+    .footer-nav a{font-size:0.78rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s}
+    .footer-nav a:hover{color:var(--or-clair)}
+
+    @media(max-width:600px){.videos-grid{grid-template-columns:1fr}.top-nav{gap:1rem}}
+  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lang-switcher.css">
+</head>
+<body data-i18n-title="videosPage.metaTitle">
+
+
+  <nav class="top-nav">
+    <a href="index.html" data-i18n="nav.home">🏠 Accueil</a>
+    <a href="Articles.html" data-i18n="nav.articles">📚 Articles</a>
+    <a href="Videos.html" class="active" data-i18n="nav.videos">🎬 Vidéos</a>
+    <a href="Audio.html" data-i18n="nav.audio">📻 Audio</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="eyebrow" data-i18n="videosPage.header">Médiathèque</div>
+    <article class="article-ecoute">
+<h1 data-i18n="videosPage.title">🎬 Vidéos</h1>
+    <p data-i18n="videosPage.sub">Les Premières Nations du Québec — documentaires et reportages.</p>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="videos-section">
+    <div class="section-title" data-i18n="videosPage.sectionTitle">Toutes les nations</div>
+    <div class="section-sub" id="videos-count-sub">Documentaires · Histoires · Traditions</div>
+
+    <div class="videos-grid" id="videos-grid-mount">
+      <p style="color:rgba(255,255,255,0.5);grid-column:1/-1;text-align:center;" data-i18n="videosPage.loading">Chargement des vidéos…</p>
+    </div>
+
+    <div class="yt-banner">
+      <h3>🎬 Notre chaîne YouTube</h3>
+      <p>Abonnez-vous à la chaîne <strong>Les Premières Nations au Québec</strong> pour ne manquer aucune nouvelle vidéo sur l'histoire et la culture autochtone.</p>
+      <a href="https://www.youtube.com/@lespremieresnationsauquebec" target="_blank" class="btn-yt">
+        ▶ S'abonner sur YouTube
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-nav">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#nations">Articles</a>
+      <a href="Videos.html">Vidéos</a>
+      <a href="Audio.html">Audio</a>
+    </div>
+    <p>© 2025 Les Premières Nations au Québec · Contenu éducatif et culturel</p>
+    <p style="margin-top:0.5rem"><a href="https://www.facebook.com/groups/1451283625021958" target="_blank">Rejoindre notre groupe Facebook</a></p>
+  </footer>
+
+
+</article>
+
+  <script src="audio-player.js" defer></script>
+  <script src="lang-switcher.js" defer></script>
+  <script>
+  (function () {
+    var mount = document.getElementById('videos-grid-mount');
+    var sub = document.getElementById('videos-count-sub');
+    if (!mount) return;
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+    }
+    function render(data) {
+      var list = data.videos || [];
+      if (sub) {
+        var tpl = typeof window.pnT === 'function'
+          ? window.pnT('media.videosBadge', { n: list.length })
+          : list.length + ' vidéos';
+        sub.textContent = tpl + ' · ' + (typeof window.pnT === 'function' ? window.pnT('media.videosSubSuffix') : 'Documentaires · Histoires · Traditions');
+      }
+      window.pnUpdateVideosI18n = function () {
+        var lang = document.documentElement.lang;
+        if (lang !== 'en' && lang !== 'es') lang = 'fr';
+        if (sub && window.__pnVideoListLen != null) {
+          var t = typeof window.pnT === 'function'
+            ? window.pnT('media.videosBadge', { n: window.__pnVideoListLen })
+            : window.__pnVideoListLen + ' vidéos';
+          sub.textContent = t + ' · ' + (typeof window.pnT === 'function' ? window.pnT('media.videosSubSuffix') : 'Documentaires · Histoires · Traditions');
+        }
+        var cards = document.querySelectorAll('.video-card[data-pn-video-id]');
+        if (!cards.length) return;
+        // Mémoriser le texte FR d'origine (une fois) pour pouvoir le restaurer.
+        cards.forEach(function (card) {
+          if (card.getAttribute('data-fr-done')) return;
+          var tg = card.querySelector('.video-tag');
+          var ti = card.querySelector('.video-title');
+          var de = card.querySelector('.video-desc');
+          if (tg) card.setAttribute('data-fr-tag', tg.textContent);
+          if (ti) card.setAttribute('data-fr-title', ti.textContent);
+          if (de) card.setAttribute('data-fr-desc', de.textContent);
+          card.setAttribute('data-fr-done', '1');
+        });
+        if (lang === 'fr') {
+          cards.forEach(function (card) {
+            var tg = card.querySelector('.video-tag');
+            var ti = card.querySelector('.video-title');
+            var de = card.querySelector('.video-desc');
+            if (tg && card.getAttribute('data-fr-tag') !== null) tg.textContent = card.getAttribute('data-fr-tag');
+            if (ti && card.getAttribute('data-fr-title') !== null) ti.textContent = card.getAttribute('data-fr-title');
+            if (de && card.getAttribute('data-fr-desc') !== null) de.textContent = card.getAttribute('data-fr-desc');
+          });
+          return;
+        }
+        function applyMap(map) {
+          cards.forEach(function (card) {
+            var m = map && map[card.getAttribute('data-pn-video-id')];
+            if (!m) return;
+            var tg = card.querySelector('.video-tag');
+            var ti = card.querySelector('.video-title');
+            var de = card.querySelector('.video-desc');
+            if (tg && m.tag) tg.textContent = m.tag;
+            if (ti && m.title) ti.textContent = m.title;
+            if (de && m.description) de.textContent = m.description;
+          });
+        }
+        window.__pnVideoI18n = window.__pnVideoI18n || {};
+        if (window.__pnVideoI18n[lang]) { applyMap(window.__pnVideoI18n[lang]); return; }
+        var urls = ['locales/videos-i18n.json', '../locales/videos-i18n.json'];
+        (function tryLoad(i) {
+          if (i >= urls.length) return;
+          fetch(urls[i], { cache: 'no-store' })
+            .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+            .then(function (data) {
+              window.__pnVideoI18n[lang] = (data && data[lang]) || {};
+              applyMap(window.__pnVideoI18n[lang]);
+            })
+            .catch(function () { tryLoad(i + 1); });
+        })(0);
+      };
+      window.__pnVideoListLen = list.length;
+      if (!list.length) {
+        mount.innerHTML = '<p style="color:#c98888;text-align:center;grid-column:1/-1;">Catalogue vide — ajoutez une entrée dans <code>videos-catalog.json</code>.</p>';
+        return;
+      }
+      mount.innerHTML = list.map(function (v) {
+        var id = esc(v.youtubeId);
+        var title = esc(v.title);
+        return (
+          '<div class="video-card" data-pn-video-id="' + id + '"><div class="video-embed">' +
+          '<iframe src="https://www.youtube.com/embed/' + id + '" title="' + title + '" allowfullscreen loading="lazy"></iframe>' +
+          '</div><div class="video-info"><div class="video-tag">' + esc(v.tag) + '</div>' +
+          '<div class="video-title">' + title + '</div><div class="video-desc">' + esc(v.description) + '</div></div></div>'
+        );
+      }).join('');
+      var yt = document.querySelector('.yt-banner .btn-yt');
+      if (yt && data.youtubeChannel) yt.href = data.youtubeChannel;
+      if (typeof window.pnUpdateVideosI18n === 'function') window.pnUpdateVideosI18n();
+    }
+    function tryFetch(urls, i) {
+      if (i >= urls.length) {
+        mount.innerHTML = '<p style="color:#c98888;text-align:center;grid-column:1/-1;">Impossible de charger videos-catalog.json</p>';
+        return;
+      }
+      fetch(urls[i], { credentials: 'omit', cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+        .then(render)
+        .catch(function () { tryFetch(urls, i + 1); });
+    }
+    tryFetch(['videos-catalog.json'], 0);
+  })();
+  </script>
+</body>
+</html>
