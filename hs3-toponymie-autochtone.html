@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ce que disent les noms : la toponymie autochtone du Québec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F1E6;
+    --paper:#FBF8F0;
+    --deep:#2B2A1E;
+    --midnight:#14120C;
+    --brass:#8B7A52;
+    --sand:#E4DAC0;
+    --verdigris:#5B9A85;
+    --ink:#2E2A20;
+    --ink-soft:#4A4438;
+    --hairline:#E3DAC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--verdigris);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--deep);margin:0;}
+
+  .hero{position:relative;min-height:76vh;display:flex;align-items:flex-end;
+    background:linear-gradient(180deg, rgba(20,18,12,0.30) 0%, rgba(20,18,12,0.40) 40%, rgba(20,18,12,0.95) 92%),
+    url('https://images.pexels.com/photos/12003326/pexels-photo-12003326.jpeg?auto=compress&cs=tinysrgb&w=1920') center 50% / cover no-repeat;
+    color:#fff;}
+  .hero-inner{position:relative;max-width:760px;margin:0 auto;padding:3rem 1.75rem 3.5rem 1.75rem;text-align:center;width:100%;}
+  .hero .eyebrow{color:var(--sand);opacity:0.95;}
+  .hero h1{font-size:clamp(2.1rem,4.8vw,3.3rem);color:#fff;line-height:1.1;margin-top:0.9rem;letter-spacing:-0.01em;text-shadow:0 2px 24px rgba(0,0,0,0.4);}
+  .hero .sub{margin-top:1.1rem;font-size:1.05rem;color:var(--sand);font-weight:400;max-width:540px;margin-left:auto;margin-right:auto;}
+  .photo-credit{position:absolute;bottom:0.6rem;right:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.55);}
+
+  .shell{max-width:700px;margin:0 auto;padding:3.5rem 1.75rem 1rem 1.75rem;}
+  .lede{font-family:'Fraunces',serif;font-size:1.28rem;font-weight:400;color:var(--deep);line-height:1.55;}
+  .lede::first-letter{font-size:3.6rem;font-weight:700;float:left;line-height:0.85;padding:0.06em 0.09em 0 0;color:var(--verdigris);}
+
+  section.block{margin-top:3.2rem;}
+  section.block h2{font-size:1.5rem;line-height:1.25;margin-bottom:1.1rem;}
+  section.block h2 .num{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--verdigris);vertical-align:super;margin-right:0.4em;}
+  section.block p{color:var(--ink-soft);font-size:1.02rem;margin:0 0 1rem 0;}
+  section.block p strong{color:var(--deep);}
+
+  .figure{position:relative;margin:1.6rem 0;border-radius:14px;overflow:hidden;border:1px solid var(--hairline);background:var(--sand);}
+  .figure img{display:block;width:100%;height:320px;object-fit:cover;}
+  .figure figcaption{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-soft);padding:0.7rem 1rem;border-top:1px solid var(--hairline);background:var(--paper);display:flex;justify-content:space-between;gap:0.5rem;flex-wrap:wrap;}
+  .figure figcaption .credit{opacity:0.55;}
+
+  .stat-bar{display:flex;gap:0.8rem;margin:1.6rem 0;flex-wrap:wrap;}
+  .stat-bar div{flex:1;min-width:130px;background:var(--paper);border:1px solid var(--hairline);border-radius:10px;padding:0.9rem 1rem;text-align:center;}
+  .stat-bar .num{font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;color:var(--verdigris);display:block;}
+  .stat-bar .label{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-soft);margin-top:0.2rem;}
+
+  .compare{width:100%;border-collapse:collapse;margin:1.6rem 0;font-size:0.92rem;}
+  .compare th,.compare td{border:1px solid var(--hairline);padding:0.6rem 0.7rem;text-align:left;}
+  .compare th{background:var(--paper);font-family:'Fraunces',serif;color:var(--deep);}
+  .compare td{color:var(--ink-soft);background:var(--paper);}
+
+  .season-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin:1.4rem 0;}
+  .season-grid div{background:var(--paper);border:1px solid var(--hairline);border-radius:10px;padding:0.7rem 0.5rem;text-align:center;}
+  .season-grid .name{font-family:'Fraunces',serif;font-weight:600;color:var(--deep);font-size:0.95rem;}
+  .season-grid .desc{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--ink-soft);margin-top:0.2rem;}
+
+  .divider{max-width:700px;margin:3.4rem auto;padding:0 1.75rem;}
+  .divider svg{width:100%;height:22px;display:block;}
+
+  .pullquote{font-family:'Fraunces',serif;font-style:italic;font-size:1.22rem;color:var(--deep);border-left:3px solid var(--verdigris);padding-left:1.2rem;margin:1.8rem 0;}
+
+  .closing{background:var(--paper);border:1px solid var(--hairline);border-radius:16px;padding:1.8rem;margin-top:1rem;}
+
+  footer{margin-top:4.5rem;background:var(--midnight);color:var(--sand);padding:3rem 1.75rem 2.5rem 1.75rem;}
+  .footer-inner{max-width:700px;margin:0 auto;text-align:center;}
+  .footer-inner h3{color:#fff;font-size:1.3rem;margin-bottom:0.6rem;}
+  .footer-inner p{color:var(--sand);opacity:0.85;font-size:0.96rem;margin:0 0 1.6rem 0;}
+  .cta-link{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.82rem;letter-spacing:0.03em;color:var(--midnight);background:var(--verdigris);padding:0.85rem 1.6rem;border-radius:999px;text-decoration:none;transition:transform 0.15s ease, background 0.15s ease;}
+  .cta-link:hover{background:#75AC98;transform:translateY(-1px);}
+  .cta-link:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  .hashtags{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:0.55rem;justify-content:center;}
+  .hashtags span{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--sand);border:1px solid rgba(228,218,192,0.35);padding:0.35rem 0.75rem;border-radius:999px;}
+  .footer-meta{margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid rgba(228,218,192,0.2);font-size:0.76rem;color:rgba(228,218,192,0.6);line-height:1.6;}
+
+  @media (max-width:520px){.hero{min-height:64vh;}.lede::first-letter{font-size:2.9rem;}.figure img{height:220px;}.compare{font-size:0.8rem;}.season-grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Hors-série · Savoirs méconnus des Premières Nations</span>
+    <h1>Ce que disent les noms</h1>
+    <p class="sub">Chicoutimi, Matane, Rimouski, Tadoussac, Coaticook : plus de 14 000 toponymes du Québec viennent de langues des Premières Nations, et décrivaient le territoire avant même les cartes européennes.</p>
+  </div>
+  <span class="photo-credit">Photo : Ilya Sobolev / Pexels</span>
+</header>
+
+<main class="shell">
+
+  <p class="lede">Chicoutimi, Matane, Rimouski, Tadoussac, Coaticook : on prononce ces noms comme des mélodies, des sonorités qui donnent au Québec un parfum d'ailleurs et de folklore. Mais ces mots ne sont pas des ornements sonores légués par le hasard colonial — ce sont des descriptions du territoire, transmises par les nations qui l'habitaient et le parcouraient bien avant qu'un cartographe européen n'y appose un nom. Profondeur d'une eau, ressource d'une rive, praticabilité d'un passage : la carte du Québec reste, pour une bonne part, un document autochtone qu'on a cessé de savoir lire.</p>
+
+  <div class="stat-bar">
+    <div><span class="num">14 000+</span><span class="label">noms de lieux d'origine autochtone dans la nomenclature officielle du Québec (Commission de toponymie, 20 juin 2022)</span></div>
+  </div>
+
+  <section class="block">
+    <h2><span class="num">01</span>Un texte écrit avant la carte</h2>
+    <p>On range souvent ces noms dans la catégorie du pittoresque : de jolies sonorités qui donneraient au Québec une couleur locale, au même titre qu'un accent régional. Cette lecture n'est pas neutre — elle vide les mots de leur fonction. Les Premières Nations du Québec appartiennent à deux grandes familles linguistiques et culturelles, l'une algonquienne, l'autre iroquoienne, selon la Commission de toponymie ; les noms qui nous occupent ici viennent tous de langues algonquiennes — innu-aimun, abénakis, mi'gmaq, wolastoqey.</p>
+    <p>Ce n'est pas un vernis décoratif posé après coup sur la carte : c'est la carte elle-même, dressée oralement, transmise de génération en génération, bien avant qu'un arpenteur ou un missionnaire français n'y mette les pieds.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 700 22" xmlns="http://www.w3.org/2000/svg"><path d="M0,11 C100,2 200,20 300,11 C400,2 500,20 600,11 C650,7 680,14 700,11" stroke="#8B7A52" stroke-width="1.5" fill="none" opacity="0.6"/></svg>
+  </div>
+
+  <section class="block">
+    <h2><span class="num">02</span>Ce que mesurent les noms</h2>
+    <p>Prenez Chicoutimi. Le nom vient de l'innu, mais son sens précis reste débattu : selon les hypothèses recensées par la Commission de toponymie, l'élément <em>timi</em> renverrait à une idée de profondeur, tandis que <em>chicou</em> se laisse traduire par « grand », « jusqu'où » ou « qui cesse ». Chicoutimi voudrait donc dire quelque chose comme « jusqu'où c'est profond » — une indication de navigation, pas une image poétique.</p>
+
+    <figure class="figure">
+      <img src="https://images.pexels.com/photos/6420036/pexels-photo-6420036.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Surface d'une eau sombre et ridée, sans rivage visible">
+      <figcaption>
+        <span>La profondeur d'une eau sombre : un repère de navigation avant d'être une image</span>
+        <span class="credit">Photo : Eva Bronzini / Pexels</span>
+      </figcaption>
+    </figure>
+
+    <p>Coaticook obéit à la même logique. Le nom vient de l'abénakis <em>Koategok</em>, formé de <em>kowa</em>, « pin », et de <em>tegok</em>, « rivière » : la rivière bordée de pins blancs. Quant à Tadoussac, malgré les hypothèses multiples et concurrentes qu'il a suscitées — le père Charles Arnaud y voyait « l'endroit où la glace est brisée », d'autres sources innues évoquent <em>shashuko</em>, « endroit aux homards », ou <em>totouswk</em>, « mamelles », en écho à deux collines proches, quand le mi'gmaq et l'abénakis proposent encore d'autres pistes —, aucune de ces pistes ne relève de la simple sonorité : chaque hypothèse décrit un repère concret, une glace, une ressource, un relief.</p>
+
+    <p class="pullquote">« Son origine et sa signification ont suscité plusieurs interprétations à travers le temps. » — Commission de toponymie du Québec, fiche Tadoussac</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 700 22" xmlns="http://www.w3.org/2000/svg"><path d="M0,11 C100,2 200,20 300,11 C400,2 500,20 600,11 C650,7 680,14 700,11" stroke="#5B9A85" stroke-width="1.5" fill="none" opacity="0.6"/></svg>
+  </div>
+
+  <section class="block">
+    <h2><span class="num">03</span>Le doute, lui aussi, est une information</h2>
+    <p>Rimouski n'est pas un cas isolé où l'incertitude embarrasse les chercheurs : elle est la norme, pas l'exception. L'explication répétée depuis un siècle — « terre à l'orignal », proposée par Mgr Tanguay — n'a, selon les travaux universitaires les plus récents sur le toponyme, jamais été véritablement démontrée ; une piste concurrente, associée à une racine signifiant « chien », y est aujourd'hui jugée mieux étayée. Matane, de son côté, cumule les hypothèses sans qu'aucune ne l'emporte clairement : un mot wolastoqey pour « moelle épinière », en référence au tracé de la rivière ; une parenté avec <em>Mattawa</em>, « la rencontre des eaux » ; ou l'abrégé d'un terme signifiant « naufrage ». Trois langues, trois images, un seul nom.</p>
+
+    <table class="compare">
+      <tr><th></th><th>Ce qu'on croit entendre</th><th>Ce que montrent les sources</th></tr>
+      <tr><td>Rimouski</td><td>« Terre à l'orignal », explication répétée depuis un siècle</td><td>Hypothèse aujourd'hui écartée ; origine mi'gmaq disputée, proche de « terre du chien »</td></tr>
+      <tr><td>Matane</td><td>Un nom exotique, sans histoire particulière</td><td>Plusieurs hypothèses concurrentes non tranchées : moelle épinière, rencontre des eaux, naufrage</td></tr>
+      <tr><td>L'ensemble des noms</td><td>Des sonorités pittoresques héritées du hasard</td><td>Plus de 14 000 toponymes officiels, pour beaucoup des repères fonctionnels du territoire</td></tr>
+    </table>
+
+    <div class="season-grid">
+      <div><div class="name">Chicoutimi</div><div class="desc">« jusqu'où c'est profond » — innu, hypothèse</div></div>
+      <div><div class="name">Coaticook</div><div class="desc">« la rivière aux pins » — abénakis</div></div>
+      <div><div class="name">Tadoussac</div><div class="desc">« où la glace est brisée » — innu-aimun, une hypothèse</div></div>
+      <div><div class="name">Rimouski</div><div class="desc">« la terre du chien » — algonquienne, langue précise disputée (mi'gmaq, sauteux ou abénaki selon les sources)</div></div>
+      <div><div class="name">Matane</div><div class="desc">« la rencontre des eaux » — wolastoqey, une hypothèse</div></div>
+    </div>
+  </section>
+
+  <section class="block closing">
+    <h2 style="font-size:1.3rem;"><span class="num">04</span>Une carte à réapprendre à lire</h2>
+    <p>Ces cinq noms ne sont qu'un échantillon parmi plus de 14 000. Ils rappellent que la cartographie du Québec n'a pas commencé avec les explorateurs français : elle existait déjà, orale, précise, transmise par les nations qui parcouraient ce territoire pour y trouver leur subsistance. La Commission de toponymie poursuit aujourd'hui ce travail de recensement aux côtés des communautés autochtones, en sachant que plusieurs significations resteront incertaines. Ce n'est pas un défaut de la source : c'est le rappel qu'une carte n'appartient jamais tout à fait à ceux qui la lisent après coup.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <h3>D'autres savoirs méconnus à découvrir</h3>
+    <p>Cette série hors-série explore des aspects peu connus de la vie des Premières Nations du Québec.</p>
+    <a class="cta-link" href="#" target="_blank" rel="noopener">Voir tous les articles hors-série →</a>
+    <div class="hashtags">
+      <span>#Toponymie</span>
+      <span>#PremièresNations</span>
+      <span>#Innus</span>
+      <span>#Abénakis</span>
+      <span>#Migmaq</span>
+      <span>#Québec</span>
+    </div>
+    <div class="footer-meta">
+      Sources texte : Commission de toponymie du Québec (fiches Chicoutimi, Tadoussac, Coaticook, Rimouski, Matane ; communiqué du 20 juin 2022), Université du Québec à Rimouski (étude sur l'étymologie de Rimouski).<br>
+      Photos libres de droits : Pexels (Ilya Sobolev, Eva Bronzini) — utilisation libre, non commerciale et commerciale, sans attribution obligatoire.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
