@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La naissance d'un peuple : la rivière Rouge et Louis Riel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3EDE6;
+    --paper:#FBF7F1;
+    --deep:#2E2440;
+    --midnight:#1C1729;
+    --plum:#5B4B7A;
+    --copper:#C17B4A;
+    --ember:#A8442E;
+    --ink:#241E30;
+    --ink-soft:#544A62;
+    --hairline:#E2D9CE;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--copper);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--deep);margin:0;}
+
+  .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;
+    background:linear-gradient(180deg, rgba(28,23,41,0.28) 0%, rgba(28,23,41,0.40) 40%, rgba(28,23,41,0.95) 92%),
+    url('https://images.pexels.com/photos/38932993/pexels-photo-38932993.jpeg?auto=compress&cs=tinysrgb&w=1920') center 55% / cover no-repeat;
+    color:#fff;}
+  .hero-inner{position:relative;max-width:760px;margin:0 auto;padding:3rem 1.75rem 3.5rem 1.75rem;text-align:center;width:100%;}
+  .hero .eyebrow{color:var(--copper);opacity:1;}
+  .hero h1{font-size:clamp(1.95rem,4.5vw,3.1rem);color:#fff;line-height:1.12;margin-top:0.9rem;letter-spacing:-0.01em;text-shadow:0 2px 24px rgba(0,0,0,0.4);}
+  .hero .sub{margin-top:1.1rem;font-size:1.05rem;color:#E5DCEB;font-weight:400;max-width:560px;margin-left:auto;margin-right:auto;}
+  .photo-credit{position:absolute;bottom:0.6rem;right:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.55);}
+
+  .shell{max-width:700px;margin:0 auto;padding:3.5rem 1.75rem 1rem 1.75rem;}
+  .lede{font-family:'Fraunces',serif;font-size:1.28rem;font-weight:400;color:var(--deep);line-height:1.55;}
+  .lede::first-letter{font-size:3.6rem;font-weight:700;float:left;line-height:0.85;padding:0.06em 0.09em 0 0;color:var(--ember);}
+
+  .series-nav{display:flex;justify-content:space-between;align-items:center;background:var(--paper);border:1px solid var(--hairline);border-radius:12px;padding:0.9rem 1.2rem;margin:1.8rem 0;font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--ink-soft);}
+  .series-nav strong{color:var(--deep);}
+  .series-nav a{color:var(--ink-soft);text-decoration:none;}
+
+  .stat-bar{display:flex;gap:0.8rem;margin:1.6rem 0;flex-wrap:wrap;}
+  .stat-bar div{flex:1;min-width:120px;background:var(--paper);border:1px solid var(--hairline);border-radius:10px;padding:0.9rem 1rem;text-align:center;}
+  .stat-bar .num{font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:var(--ember);display:block;}
+  .stat-bar .label{font-family:'IBM Plex Mono',monospace;font-size:0.63rem;color:var(--ink-soft);margin-top:0.2rem;}
+
+  .timeline{border-left:2px solid var(--hairline);margin:1.6rem 0 1.6rem 0.4rem;padding-left:1.3rem;}
+  .timeline .item{margin-bottom:1rem;position:relative;}
+  .timeline .item::before{content:"";position:absolute;left:-1.62rem;top:0.35rem;width:9px;height:9px;border-radius:50%;background:var(--ember);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ember);display:block;}
+  .timeline .desc{color:var(--ink-soft);font-size:0.95rem;}
+
+  section.block{margin-top:3.2rem;}
+  section.block h2{font-size:1.42rem;line-height:1.25;margin-bottom:1.1rem;}
+  section.block h2 .num{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--ember);vertical-align:super;margin-right:0.4em;}
+  section.block p{color:var(--ink-soft);font-size:1.02rem;margin:0 0 1rem 0;}
+  section.block p strong{color:var(--deep);}
+
+  .pullquote{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--deep);border-left:3px solid var(--ember);padding-left:1.2rem;margin:1.8rem 0;}
+  .pullquote cite{display:block;font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:0.72rem;color:var(--ink-soft);margin-top:0.5rem;}
+
+  .divider{max-width:700px;margin:3.4rem auto;padding:0 1.75rem;}
+  .divider svg{width:100%;height:22px;display:block;}
+
+  .closing{background:var(--paper);border:1px solid var(--hairline);border-radius:16px;padding:1.8rem;margin-top:1rem;}
+  .closing p.teaser{font-family:'Fraunces',serif;font-style:italic;color:var(--deep);}
+
+  footer{margin-top:4.5rem;background:var(--midnight);color:#E5DCEB;padding:3rem 1.75rem 2.5rem 1.75rem;}
+  .footer-inner{max-width:700px;margin:0 auto;text-align:center;}
+  .footer-inner h3{color:#fff;font-size:1.3rem;margin-bottom:0.6rem;}
+  .footer-inner p{color:#E5DCEB;opacity:0.85;font-size:0.96rem;margin:0 0 1.6rem 0;}
+  .cta-link{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.82rem;letter-spacing:0.03em;color:var(--midnight);background:var(--ember);padding:0.85rem 1.6rem;border-radius:999px;text-decoration:none;transition:transform 0.15s ease, background 0.15s ease;}
+  .cta-link:hover{background:#c4573a;transform:translateY(-1px);}
+  .cta-link:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  .hashtags{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:0.55rem;justify-content:center;}
+  .hashtags span{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:#E5DCEB;border:1px solid rgba(229,220,235,0.35);padding:0.35rem 0.75rem;border-radius:999px;}
+  .footer-meta{margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid rgba(229,220,235,0.2);font-size:0.76rem;color:rgba(229,220,235,0.6);line-height:1.6;}
+
+  @media (max-width:520px){.hero{min-height:66vh;}.lede::first-letter{font-size:2.9rem;}.series-nav{flex-direction:column;align-items:flex-start;gap:0.4rem;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Série · Les Métis, une nation entre deux mondes — Épisode 5 sur 11</span>
+    <h1>La naissance d'un peuple</h1>
+    <p class="sub">1816-1885 : sur les plaines de la rivière Rouge, un peuple qui n'avait encore de nom que par la nation de sa mère se donne enfin un drapeau, un gouvernement — et un destin tragique.</p>
+  </div>
+  <span class="photo-credit">Photo : Jola Kedra / Pexels</span>
+</header>
+
+<main class="shell">
+
+  <p class="lede">Nous avons suivi, depuis quatre épisodes, une histoire de marges et d'oublis. Ce cinquième épisode raconte l'inverse : le moment précis où le métissage cesse d'être une marge et devient, pour la première fois, une nation qui se nomme, se donne un drapeau et prend les armes pour défendre ses droits — la Nation métisse de la rivière Rouge.</p>
+
+  <div class="series-nav">
+    <span>◀ <a href="metis-ep4-metis-oublies-de-lest.html">Épisode 4 : Les Métis oubliés de l'Est</a></span>
+    <span>Suivant : <strong>Effacés des registres ▶</strong></span>
+  </div>
+
+  <section class="block">
+    <h2><span class="num">01</span>Une rivalité commerciale qui accouche d'une nation</h2>
+    <p>Après 1763, les territoires français passent sous domination britannique. Deux compagnies rivales, la Compagnie de la Baie d'Hudson et la Compagnie du Nord-Ouest, se livrent une lutte commerciale et territoriale sans précédent pour pénétrer plus loin vers l'ouest, jusque dans l'actuel Manitoba — un territoire où vivent déjà, depuis des générations, les descendants des mariages « à la façon du pays » nés de la traite des fourrures.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 700 22" xmlns="http://www.w3.org/2000/svg"><path d="M0,11 C100,2 200,20 300,11 C400,2 500,20 600,11 C650,7 680,14 700,11" stroke="#5B4B7A" stroke-width="1.5" fill="none" opacity="0.6"/></svg>
+  </div>
+
+  <section class="block">
+    <h2><span class="num">02</span>1816 : un drapeau se lève au-dessus du pemmican</h2>
+    <p>Cette rivalité dégénère en affrontements armés lors de la « guerre du Pemmican ». Les deux compagnies employant massivement des travailleurs métis, ceux-ci se retrouvent en première ligne du conflit — et c'est précisément dans ce contexte de crise que s'affirme, pour la première fois, une identité métisse collective.</p>
+
+    <p class="pullquote">C'est lors de ces évènements que s'affirme une identité Métis collective, Cuthbert Grant étant le premier à brandir le drapeau Métis.
+      <cite>— Wikipédia, Métis (Canada)</cite>
+    </p>
+
+    <div class="stat-bar">
+      <div><span class="num">19 juin 1816</span><span class="label">bataille de Seven Oaks, une vingtaine de colons tués</span></div>
+      <div><span class="num">1821</span><span class="label">fusion des deux compagnies, fin de la guerre du Pemmican</span></div>
+    </div>
+
+    <p>Le drapeau brandi par Cuthbert Grant — un huit horizontal blanc sur fond bleu, symbole d'union et de continuité — flotte encore aujourd'hui comme emblème officiel de la Nation métisse. Il n'est pas né dans un moment de célébration, mais au cœur d'un conflit armé pour la survie économique d'un peuple.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 700 22" xmlns="http://www.w3.org/2000/svg"><path d="M0,11 C100,2 200,20 300,11 C400,2 500,20 600,11 C650,7 680,14 700,11" stroke="#C17B4A" stroke-width="1.5" fill="none" opacity="0.6"/></svg>
+  </div>
+
+  <section class="block">
+    <h2><span class="num">03</span>Louis Riel, l'homme de la rivière Rouge</h2>
+    <p>Né le 22 octobre 1844, petit-fils d'une Métisse par sa mère, Louis Riel étudie plusieurs années à Montréal chez les Sulpiciens et les Sœurs Grises avant de revenir sur la rivière Rouge à 25 ans. Son autorité naturelle, sa maîtrise du français et de l'anglais, et son éloquence l'imposent rapidement comme porte-parole des Métis, à un moment où l'arrivée de colons anglophones et le projet de transfert du territoire au Canada, sans consultation, menacent directement leurs terres.</p>
+
+    <div class="timeline">
+      <div class="item"><span class="date">11 octobre 1869</span><span class="desc">le Métis Édouard Marion interrompt des arpenteurs travaillant sans consentement sur sa terre</span></div>
+      <div class="item"><span class="date">16 octobre 1869</span><span class="desc">le Comité national des Métis appelle à la fondation d'une république métisse indépendante</span></div>
+      <div class="item"><span class="date">2 novembre 1869</span><span class="desc">500 Métis s'emparent du Upper Fort Garry, siège du pouvoir régional</span></div>
+      <div class="item"><span class="date">8 décembre 1869</span><span class="desc">formation d'un gouvernement provisoire métis, dirigé par Louis Riel</span></div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 700 22" xmlns="http://www.w3.org/2000/svg"><path d="M0,11 C100,2 200,20 300,11 C400,2 500,20 600,11 C650,7 680,14 700,11" stroke="#A8442E" stroke-width="1.5" fill="none" opacity="0.6"/></svg>
+  </div>
+
+  <section class="block">
+    <h2><span class="num">04</span>Le prix de la résistance</h2>
+    <p>Du 25 janvier au 10 février 1870, la Grande Convention réunit 20 délégués métis anglophones et 20 délégués métis francophones pour rédiger une liste de droits — le socle même de la Loi sur le Manitoba de 1870, qui fait entrer le territoire dans la Confédération canadienne en tant que province, avec des garanties linguistiques et foncières pour les Métis.</p>
+    <p>Mais cette victoire politique a un prix immédiat. Le 4 mars 1870, un tribunal métis fait exécuter Thomas Scott, un agitateur orangiste et farouchement anti-métis. L'exécution déclenche une onde de choc au Canada anglais ; une expédition militaire est envoyée sur la rivière Rouge, et craignant pour sa vie, Riel s'exile aux États-Unis en 1873.</p>
+  </section>
+
+  <section class="block closing">
+    <h2 style="font-size:1.3rem;"><span class="num">05</span>1885 : la fin tragique d'un chef</h2>
+    <p>En 1884, des Métis de la Saskatchewan, menés par Gabriel Dumont, viennent chercher Riel en exil pour qu'il rédige une Déclaration des droits de la Nation métisse. Le 15 février 1885, il devient officiellement chef des Métis. Le conflit armé avec les forces canadiennes, acheminées par le tout nouveau chemin de fer transcontinental, devient inévitable : après avoir tenu en échec 500 soldats à l'Anse-aux-Poissons, Dumont et Riel s'inclinent finalement à Batoche, écrasés par le nombre. Riel se rend le 15 mai 1885 ; son procès à Regina se conclut par une condamnation à mort pour haute trahison. Il est exécuté par pendaison le 16 novembre 1885.</p>
+    <p class="teaser">La Nation métisse venait de naître officiellement — et de perdre son chef fondateur le même siècle. Pendant ce temps, à des milliers de kilomètres à l'est, dans la vallée du Saint-Laurent, une tout autre bataille se joue : celle de l'effacement administratif et silencieux des Métis du Québec, que nous suivrons dans le sixième épisode.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <h3>La série continue</h3>
+    <p>Épisode 6 : Effacés des registres — un siècle d'invisibilité au Québec (1870-1980).</p>
+    <a class="cta-link" href="#" target="_blank" rel="noopener">Lire l'épisode 6 →</a>
+    <p style="margin-top:1.4rem;">
+      <a href="https://www.facebook.com/groups/1451283625021958" target="_blank" rel="noopener" style="color:#E5DCEB; text-decoration:underline;">Rejoignez notre groupe Facebook</a>
+      — animé par Jean-Claude
+    </p>
+    <div class="hashtags">
+      <span>#Métis</span>
+      <span>#LouisRiel</span>
+      <span>#RivièreRouge</span>
+      <span>#NationMétisse</span>
+      <span>#HistoireDuQuébec</span>
+      <span>#PremièresNations</span>
+    </div>
+    <div class="footer-meta">
+      Sources texte : Wikipédia (Louis Riel, Métis (Canada)) ; Valour Canada — Louis Riel ; Atlas des peuples autochtones du Canada — La rébellion de la rivière Rouge ; Dictionnaire biographique du Canada — De la colonie de la Rivière-Rouge au Manitoba ; AQAF — Les révoltés de la Rivière Rouge.<br>
+      Photo libre de droits : Pexels (Jola Kedra) — utilisation libre, non commerciale et commerciale, sans attribution obligatoire.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
