@@ -1,7 +1,7 @@
-From d15f55f28b033037e26c35033fef89b5f6df491a Mon Sep 17 00:00:00 2001
+From fc9fd83272214f924370ed27de8b26833f701a78 Mon Sep 17 00:00:00 2001
 From: Cursor Agent <cursoragent@cursor.com>
 Date: Sun, 20 Sep 2026 16:11:58 +0000
-Subject: [PATCH] Reparer images: Base44 mort, basculer vers assets/images
+Subject: [PATCH 1/2] Reparer images: Base44 mort, basculer vers assets/images
  locales
 
 - CDN media.base44.com renvoie 404 (images externes perdues)
@@ -12,75 +12,75 @@ Subject: [PATCH] Reparer images: Base44 mort, basculer vers assets/images
 
 Apres push: verifier Abenaquis.html et Home.html; completer assets/images pour articles 52-72.
 ---
- 01-spiritualite-nature-premieres-nations.html | 24 ++--------
- 02-peuples-plaines-bison.html                 | 24 ++--------
- 03-cote-ouest-potlatch-totems.html            | 24 ++--------
- 04-iroquois-democratie.html                   | 24 ++--------
- 05-medecine-traditionnelle.html               | 24 ++--------
- 06-art-artisanat.html                         | 24 ++--------
- 07-femmes-pouvoir.html                        | 24 ++--------
- 08-traite-diplomatie.html                     | 24 ++--------
- 09-resistance-survivance.html                 | 24 ++--------
- 10-astronomie-navigation.html                 | 24 ++--------
- 11-qui-sont-les-metis.html                    | 24 ++--------
- 12-langues-autochtones.html                   | 24 ++--------
- 13-mythes-et-legendes.html                    | 24 ++--------
- 14-cuisine-traditionnelle.html                | 24 ++--------
- 15-lacrosse-jeu-createurs.html                | 24 ++--------
- 16-sites-sacres.html                          | 24 ++--------
- 17-premieres-nations-aujourdhui.html          | 24 ++--------
- 18-rites-de-passage.html                      | 24 ++--------
- 19-musique-chants-traditionnels.html          | 24 ++--------
- 20-art-rupestre.html                          | 24 ++--------
- 21-clans-systemes-parente.html                | 24 ++--------
- 22-vannerie-paniers.html                      | 24 ++--------
- 23-environnement-ecologie.html                | 24 ++--------
- 24-chamanes-medecine.html                     | 24 ++--------
- 25-danses-traditionnelles.html                | 24 ++--------
- 26-tatouages-peinture.html                    | 24 ++--------
- 27-education-autochtone.html                  | 24 ++--------
- 28-femmes-autochtones.html                    | 24 ++--------
- 29-guerre-militaire.html                      | 24 ++--------
- 30-wampum-ceintures.html                      | 24 ++--------
- 31-clans-parente-premieres-nations.html       | 24 ++--------
- 32-epidemies-avant-cartier.html               | 24 ++--------
- 33-noms-lieux-quebec-decodes.html             | 24 ++--------
- 34-devoirs-grands-parents.html                | 24 ++--------
- 35-navigateurs-foret.html                     | 24 ++--------
- 36-route-commerces-sans-monnaie.html          | 24 ++--------
- 37-esclaves-autochtones.html                  | 24 ++--------
- 38-enfance-premieres-nations.html             | 24 ++--------
- 39-routes-commerciales.html                   | 24 ++--------
- 41-reves-messagers-invisibles.html            | 22 ++-------
- "42-proph\303\251ties-grande-paix.html"       | 22 ++-------
- 43-torture-iroquois-mythes-realites.html      | 22 ++-------
- 44-trois-rivieres-capitale-poesie.html        | 22 ++-------
- 45-amirindianisation-francais.html            | 22 ++-------
- 46-truchements-precurseurs.html               | 22 ++-------
- 47-radisson-groseilliers-alliance.html        | 22 ++-------
- 48-appel-des-bois-liberte.html                | 22 ++-------
- 49-grande-paix-montreal-1701.html             | 22 ++-------
- 50-heritage-vivant-alliances.html             | 22 ++-------
- 51-le-vent-le-ciel-et-le-souffle.html         | 29 ++++--------
- 52-les-architectes-du-silence.html            | 19 +-------
- 73-l-ours-gardien-des-mondes.html             | 11 -----
- 74-le-saumon.html                             | 11 -----
- 75-l-aigle.html                               | 11 -----
+ 01-spiritualite-nature-premieres-nations.html | 24 ++------
+ 02-peuples-plaines-bison.html                 | 24 ++------
+ 03-cote-ouest-potlatch-totems.html            | 24 ++------
+ 04-iroquois-democratie.html                   | 24 ++------
+ 05-medecine-traditionnelle.html               | 24 ++------
+ 06-art-artisanat.html                         | 24 ++------
+ 07-femmes-pouvoir.html                        | 24 ++------
+ 08-traite-diplomatie.html                     | 24 ++------
+ 09-resistance-survivance.html                 | 24 ++------
+ 10-astronomie-navigation.html                 | 24 ++------
+ 11-qui-sont-les-metis.html                    | 24 ++------
+ 12-langues-autochtones.html                   | 24 ++------
+ 13-mythes-et-legendes.html                    | 24 ++------
+ 14-cuisine-traditionnelle.html                | 24 ++------
+ 15-lacrosse-jeu-createurs.html                | 24 ++------
+ 16-sites-sacres.html                          | 24 ++------
+ 17-premieres-nations-aujourdhui.html          | 24 ++------
+ 18-rites-de-passage.html                      | 24 ++------
+ 19-musique-chants-traditionnels.html          | 24 ++------
+ 20-art-rupestre.html                          | 24 ++------
+ 21-clans-systemes-parente.html                | 24 ++------
+ 22-vannerie-paniers.html                      | 24 ++------
+ 23-environnement-ecologie.html                | 24 ++------
+ 24-chamanes-medecine.html                     | 24 ++------
+ 25-danses-traditionnelles.html                | 24 ++------
+ 26-tatouages-peinture.html                    | 24 ++------
+ 27-education-autochtone.html                  | 24 ++------
+ 28-femmes-autochtones.html                    | 24 ++------
+ 29-guerre-militaire.html                      | 24 ++------
+ 30-wampum-ceintures.html                      | 24 ++------
+ 31-clans-parente-premieres-nations.html       | 24 ++------
+ 32-epidemies-avant-cartier.html               | 24 ++------
+ 33-noms-lieux-quebec-decodes.html             | 24 ++------
+ 34-devoirs-grands-parents.html                | 24 ++------
+ 35-navigateurs-foret.html                     | 24 ++------
+ 36-route-commerces-sans-monnaie.html          | 24 ++------
+ 37-esclaves-autochtones.html                  | 24 ++------
+ 38-enfance-premieres-nations.html             | 24 ++------
+ 39-routes-commerciales.html                   | 24 ++------
+ 41-reves-messagers-invisibles.html            | 22 ++-----
+ "42-proph\303\251ties-grande-paix.html"       | 22 ++-----
+ 43-torture-iroquois-mythes-realites.html      | 22 ++-----
+ 44-trois-rivieres-capitale-poesie.html        | 22 ++-----
+ 45-amirindianisation-francais.html            | 22 ++-----
+ 46-truchements-precurseurs.html               | 22 ++-----
+ 47-radisson-groseilliers-alliance.html        | 22 ++-----
+ 48-appel-des-bois-liberte.html                | 22 ++-----
+ 49-grande-paix-montreal-1701.html             | 22 ++-----
+ 50-heritage-vivant-alliances.html             | 22 ++-----
+ 51-le-vent-le-ciel-et-le-souffle.html         | 29 ++++------
+ 52-les-architectes-du-silence.html            | 19 +------
+ 73-l-ours-gardien-des-mondes.html             | 11 ----
+ 74-le-saumon.html                             | 11 ----
+ 75-l-aigle.html                               | 11 ----
  76-les-outils-de-chasse.html                  | 13 +----
  77-les-techniques-de-peche.html               | 13 +----
  78-le-feu-pierre-le-fouineur.html             | 13 +----
- Abenaquis.html                                |  6 +--
- Abenaquis.jsx                                 |  6 +--
- Algonquins.html                               |  6 +--
- Algonquins.jsx                                |  6 +--
- Atikamekw.html                                |  6 +--
- Atikamekw.jsx                                 |  6 +--
+ Abenaquis.html                                |  6 +-
+ Abenaquis.jsx                                 |  6 +-
+ Algonquins.html                               |  6 +-
+ Algonquins.jsx                                |  6 +-
+ Atikamekw.html                                |  6 +-
+ Atikamekw.jsx                                 |  6 +-
  BijouxPremieresNations.html                   | 10 ++--
  Cris.html                                     |  4 +-
  Cris.jsx                                      |  4 +-
- FemmesAutochtones.html                        |  6 +--
- Home.html                                     |  8 ++--
- Home.jsx                                      | 24 +++++-----
+ FemmesAutochtones.html                        |  6 +-
+ Home.html                                     |  8 +--
+ Home.jsx                                      | 24 ++++----
  HuronsWendat.html                             |  2 +-
  HuronsWendat.jsx                              |  2 +-
  Innus.html                                    |  4 +-
@@ -95,31 +95,32 @@ Apres push: verifier Abenaquis.html et Home.html; completer assets/images pour a
  Mohawks.jsx                                   |  2 +-
  Naskapis.html                                 |  4 +-
  Naskapis.jsx                                  |  4 +-
- article52.html                                | 23 ++-------
- article53.html                                | 23 ++-------
- article54.html                                | 23 ++-------
- article55.html                                | 23 ++-------
- article56.html                                | 23 ++-------
- article57.html                                | 23 ++-------
- article58.html                                | 23 ++-------
- article59.html                                | 23 ++-------
- article60.html                                | 23 ++-------
- article61.html                                | 23 ++-------
- article62.html                                | 23 ++-------
- article63.html                                | 23 ++-------
- article64.html                                | 23 ++-------
- article65.html                                | 23 ++-------
- article66.html                                | 23 ++-------
- article67.html                                | 23 ++-------
- article68.html                                | 23 ++-------
- article69.html                                | 23 ++-------
- article70.html                                | 23 ++-------
- article71.html                                | 23 ++-------
- article72.html                                | 15 +-----
- article77.html                                |  6 +--
- article78.html                                |  6 +--
- article79.html                                |  6 +--
- famille-premieres-nations.html                | 24 ++--------
+ article52.html                                | 23 ++------
+ article53.html                                | 23 ++------
+ article54.html                                | 23 ++------
+ article55.html                                | 23 ++------
+ article56.html                                | 23 ++------
+ article57.html                                | 23 ++------
+ article58.html                                | 23 ++------
+ article59.html                                | 23 ++------
+ article60.html                                | 23 ++------
+ article61.html                                | 23 ++------
+ article62.html                                | 23 ++------
+ article63.html                                | 23 ++------
+ article64.html                                | 23 ++------
+ article65.html                                | 23 ++------
+ article66.html                                | 23 ++------
+ article67.html                                | 23 ++------
+ article68.html                                | 23 ++------
+ article69.html                                | 23 ++------
+ article70.html                                | 23 ++------
+ article71.html                                | 23 ++------
+ article72.html                                | 15 +----
+ article77.html                                |  6 +-
+ article78.html                                |  6 +-
+ article79.html                                |  6 +-
+ docs/images-manquantes-base44.txt             | 57 +++++++++++++++++++
+ famille-premieres-nations.html                | 24 ++------
  locales/articles/BijouxPremieresNations.json  |  2 +-
  locales/articles/FemmesAutochtones.json       |  2 +-
  locales/articles/article72.json               |  2 +-
@@ -133,8 +134,9 @@ Apres push: verifier Abenaquis.html et Home.html; completer assets/images pour a
  locales/nations-bodies/micmacs.json           |  2 +-
  locales/nations-bodies/naskapis.json          |  2 +-
  pages/article72.html                          |  4 +-
- scripts/repair-local-images.mjs               | 47 +++++++++++++++----
- 122 files changed, 488 insertions(+), 1520 deletions(-)
+ scripts/repair-local-images.mjs               | 47 ++++++++++++---
+ 123 files changed, 545 insertions(+), 1520 deletions(-)
+ create mode 100644 docs/images-manquantes-base44.txt
 
 diff --git a/01-spiritualite-nature-premieres-nations.html b/01-spiritualite-nature-premieres-nations.html
 index c2ceaaf..e54fe61 100644
@@ -4596,6 +4598,69 @@ index 0a33e7d..ec7e837 100644
 +  <p><a href="../79-l-hiver-pierre-le-fouineur.html">Article #79 — L'Hiver sur le territoire — ouvrir l'article</a></p>
  </body>
  </html>
+diff --git a/docs/images-manquantes-base44.txt b/docs/images-manquantes-base44.txt
+new file mode 100644
+index 0000000..e672eae
+--- /dev/null
++++ b/docs/images-manquantes-base44.txt
+@@ -0,0 +1,57 @@
++Images encore référencées mais absentes de assets/images/
++(anciennes URLs media.base44.com — CDN hors service)
++
++Ajoutez chaque fichier PNG dans assets/images/ puis relancez :
++  node scripts/repair-local-images.mjs
++  node scripts/mirror-pages-to-root.mjs
++
++030266d6d_generated_image.png
++040588c13_generated_image.png
++068f0dfd3_generated_image.png
++0d2503d7e_generated_image.png
++17f0f2c9e_generated_image.png
++1e870dd9d_generated_image.png
++2d6926d10_generated_image.png
++379962835_generated_image.png
++3cd00d9da_generated_image.png
++3e6d1ca90_generated_image.png
++446b5a79a_generated_image.png
++4bc41ce73_generated_image.png
++4df202100_generated_image.png
++53dcaccfd_generated_image.png
++5f40f2cd1_generated_image.png
++650dae6de_generated_image.png
++67d41d587_generated_image.png
++707dff608_generated_image.png
++811501d8b_generated_image.png
++8407fae80_generated_image.png
++860f042d8_generated_image.png
++86687604f_generated_image.png
++8c9cc33fa_generated_image.png
++8f71d4e8e_generated_image.png
++9017472f9_generated_image.png
++905468e9a_generated_image.png
++95344eab7_generated_image.png
++9f6ed0a82_generated_image.png
++a597c217b_generated_image.png
++a852e4940_generated_image.png
++a90dc0a76_generated_image.png
++a90dc21e9_generated_image.png
++abef7d299_generated_image.png
++ace0eb9b9_generated_image.png
++afc56eb57_generated_image.png
++b7cea70e4_generated_image.png
++bfaf47470_generated_image.png
++c243f8dbf_generated_image.png
++c4f9ecc05_generated_image.png
++c71f5f0b1_generated_image.png
++caf7ea858_generated_image.png
++d496f380b_generated_image.png
++d4a6dd0ff_generated_image.png
++d6aa9b0c8_generated_image.png
++df5d682e0_generated_image.png
++e7c06717d_generated_image.png
++f4e772403_generated_image.png
++fb6e7db22_generated_image.png
++ff30c2795_generated_image.png
++ff7da9bf9_generated_image.png
 diff --git a/famille-premieres-nations.html b/famille-premieres-nations.html
 index 28a3106..b14a91b 100644
 --- a/famille-premieres-nations.html
