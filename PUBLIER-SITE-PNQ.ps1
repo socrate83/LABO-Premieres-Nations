@@ -63,7 +63,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw "git pull a echoue" }
 
     Write-Host "  2/3 — appliquer la mise a jour (Base44 supprime, images locales)" -ForegroundColor Cyan
-    git pull $Bundle main
+    git pull $Bundle HEAD
     if ($LASTEXITCODE -ne 0) {
         Write-Host ""
         Write-Host "  Si conflit : dis a Socrate dans Cursor." -ForegroundColor Yellow
