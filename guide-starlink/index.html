@@ -127,9 +127,23 @@ a:hover {
 }
 
 .site-nav {
+  display: none;
+  position: absolute;
+  top: calc(100% - 6px);
+  left: 12px;
+  right: 12px;
+  margin: 0;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  border-radius: 16px;
+  background: var(--cream-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.site-nav.is-open {
   display: flex;
-  gap: 18px;
-  margin-left: auto;
 }
 
 .site-nav a {
@@ -144,25 +158,27 @@ a:hover {
 }
 
 .nav-toggle {
-  display: none;
+  display: inline-flex;
   margin-left: auto;
+  min-height: 44px;
   border: 1px solid currentColor;
   background: transparent;
   color: inherit;
   border-radius: 999px;
-  padding: 8px 14px;
+  padding: 10px 14px;
   font: inherit;
   font-size: 0.92rem;
   cursor: pointer;
 }
 
 .hero {
-  min-height: 100svh;
+  min-height: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 8px;
   align-items: center;
-  padding: calc(var(--header) + 28px) 7vw 72px;
+  justify-items: center;
+  padding: calc(var(--header) + 12px) 18px 32px;
   background:
     radial-gradient(ellipse at 80% 20%, rgb(226 91 36 / 28%), transparent 42%),
     radial-gradient(ellipse at 10% 90%, rgb(36 54 44 / 70%), transparent 46%),
@@ -179,13 +195,17 @@ a:hover {
   color: var(--gold);
 }
 
+.hero-copy {
+  width: min(100%, 28rem);
+}
+
 .hero h1 {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(3.1rem, 7vw, 6.4rem);
+  font-size: clamp(2.15rem, 9vw, 2.7rem);
   font-weight: 560;
-  line-height: 0.92;
-  letter-spacing: -0.035em;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
 }
 
 .lead {
@@ -197,15 +217,17 @@ a:hover {
 
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   min-height: 48px;
   padding: 12px 18px;
   border-radius: 999px;
@@ -237,8 +259,12 @@ a:hover {
   font-size: 0.92rem;
 }
 
+.sky {
+  order: -1;
+}
+
 .sky svg {
-  width: min(100%, 520px);
+  width: min(68vw, 220px);
   height: auto;
   display: block;
   margin-inline: auto;
@@ -303,11 +329,17 @@ a:hover {
 .promises {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   margin: 0;
   padding: 0;
+  width: 100%;
   background: var(--pine);
   color: var(--cream);
+}
+
+.promises li {
+  width: min(32rem, 100%);
+  margin-inline: auto;
 }
 
 .promises li {
@@ -315,7 +347,7 @@ a:hover {
 }
 
 .promises li + li {
-  box-shadow: inset 1px 0 0 rgb(244 239 230 / 16%);
+  box-shadow: inset 0 1px 0 rgb(244 239 230 / 16%);
 }
 
 .promises span {
@@ -340,11 +372,11 @@ a:hover {
 
 .layout {
   display: grid;
-  grid-template-columns: 230px minmax(0, 1fr);
-  gap: 42px;
-  width: min(1120px, calc(100% - 40px));
+  grid-template-columns: 1fr;
+  gap: 18px;
+  width: min(32rem, calc(100% - 28px));
   margin: 0 auto;
-  padding: 48px 0 24px;
+  padding: 22px 0 12px;
 }
 
 .sommaire {
@@ -396,9 +428,9 @@ a:hover {
 .chapter h2 {
   margin: 0 0 12px;
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: 1.7rem;
   font-weight: 560;
-  line-height: 1.08;
+  line-height: 1.12;
   letter-spacing: -0.03em;
 }
 
@@ -422,12 +454,9 @@ a:hover {
   margin-top: 8px;
 }
 
-.trio {
-  grid-template-columns: repeat(3, 1fr);
-}
-
+.trio,
 .split {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .trio article,
@@ -521,17 +550,17 @@ blockquote p {
 }
 
 .close-inner {
-  width: min(820px, calc(100% - 40px));
+  width: min(32rem, calc(100% - 28px));
   margin: 0 auto;
-  padding: 72px 0;
+  padding: 40px 0 48px;
 }
 
 .close h2 {
   margin: 0 0 12px;
   font-family: var(--serif);
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-size: 2rem;
   font-weight: 560;
-  line-height: 0.96;
+  line-height: 1.05;
   letter-spacing: -0.03em;
 }
 
@@ -562,7 +591,7 @@ blockquote p {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 18px;
   margin: 36px 0 12px;
   padding: 0;
@@ -585,10 +614,9 @@ blockquote p {
 
 .site-footer {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 16px;
-  flex-wrap: wrap;
-  width: min(1120px, calc(100% - 40px));
+  width: min(32rem, calc(100% - 28px));
   margin: 0 auto;
   padding: 22px 0 32px;
   color: var(--muted);
