@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guide Starlink — Quand le fil lâche | Jean-Claude B.</title>
+    <meta
+      name="description"
+      content="Guide gratuit de Jean-Claude B. pour installer Starlink comme ligne de secours : ciel dégagé, forfaits, kit Mini, hors réseau, route et sécurité."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314110e'/%3E%3Ccircle cx='16' cy='12' r='3' fill='%23e25b24'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,680;1,9..144,520&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+:root {
+  --night: #14110e;
+  --night-2: #221c17;
+  --cream: #f4efe6;
+  --cream-2: #fffaf3;
+  --ink: #1c1612;
+  --muted: #5e564c;
+  --line: #e4d9c8;
+  --copper: #e25b24;
+  --copper-deep: #c2410c;
+  --gold: #e7c27a;
+  --pine: #24362c;
+  --header: 72px;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Outfit", "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+a {
+  color: var(--copper-deep);
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--copper);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 40;
+  background: var(--cream-2);
+  color: var(--ink);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: var(--header);
+  padding: 12px 22px;
+  color: var(--cream);
+}
+
+.site-header.is-solid {
+  background: rgb(244 239 230 / 94%);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.brand-mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, var(--gold), var(--copper) 62%, transparent 64%);
+  box-shadow: 0 0 0 2px currentColor;
+}
+
+.site-nav {
+  display: flex;
+  gap: 18px;
+  margin-left: auto;
+}
+
+.site-nav a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.site-nav a:hover {
+  color: var(--copper);
+}
+
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 24px;
+  align-items: center;
+  padding: calc(var(--header) + 28px) 7vw 72px;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgb(226 91 36 / 28%), transparent 42%),
+    radial-gradient(ellipse at 10% 90%, rgb(36 54 44 / 70%), transparent 46%),
+    var(--night);
+  color: var(--cream);
+}
+
+.kicker {
+  margin: 0 0 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(3.1rem, 7vw, 6.4rem);
+  font-weight: 560;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+}
+
+.lead {
+  max-width: 38rem;
+  margin: 22px 0 0;
+  font-size: 1.16rem;
+  color: #efe6d8;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--copper-deep);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.button:hover {
+  background: var(--copper);
+  color: white;
+}
+
+.button-ghost {
+  background: transparent;
+  color: var(--cream);
+  box-shadow: inset 0 0 0 1.5px rgb(244 239 230 / 55%);
+}
+
+.button-ghost:hover {
+  background: rgb(244 239 230 / 10%);
+  color: white;
+}
+
+.hero-note {
+  margin: 16px 0 0;
+  color: #d9d0c3;
+  font-size: 0.92rem;
+}
+
+.sky svg {
+  width: min(100%, 520px);
+  height: auto;
+  display: block;
+  margin-inline: auto;
+}
+
+.stars {
+  fill: var(--gold);
+}
+
+.orbit {
+  fill: none;
+  stroke: rgb(231 194 122 / 45%);
+  stroke-width: 1.2;
+}
+
+.orbit ellipse {
+  fill: none;
+  stroke: inherit;
+}
+
+.sat {
+  fill: var(--cream);
+  stroke: none;
+}
+
+.dish {
+  fill: none;
+  stroke: var(--cream);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.dish ellipse {
+  fill: rgb(226 91 36 / 18%);
+  stroke: var(--gold);
+}
+
+.signal {
+  stroke: var(--copper);
+  stroke-width: 2;
+}
+
+.signal-2 {
+  opacity: 0.7;
+}
+
+.orbit-a {
+  transform-origin: 260px 214px;
+  animation: spin 28s linear infinite;
+}
+
+.orbit-b {
+  transform-origin: 260px 214px;
+  animation: spin 20s linear infinite reverse;
+}
+
+.orbit-c {
+  transform-origin: 260px 214px;
+  animation: spin 16s linear infinite;
+}
+
+.promises {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  padding: 0;
+  background: var(--pine);
+  color: var(--cream);
+}
+
+.promises li {
+  padding: 28px 28px 32px;
+}
+
+.promises li + li {
+  box-shadow: inset 1px 0 0 rgb(244 239 230 / 16%);
+}
+
+.promises span {
+  display: block;
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 0.95rem;
+}
+
+.promises strong {
+  display: block;
+  margin: 8px 0 6px;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 560;
+}
+
+.promises p {
+  margin: 0;
+  color: #e7dece;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 42px;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 48px 0 24px;
+}
+
+.sommaire {
+  position: sticky;
+  top: calc(var(--header) + 16px);
+  align-self: start;
+  max-height: calc(100svh - var(--header) - 32px);
+  overflow: auto;
+}
+
+.sommaire p {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sommaire ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sommaire a {
+  display: block;
+  padding: 6px 0 6px 12px;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.sommaire a:hover,
+.sommaire a[aria-current="true"] {
+  border-left-color: var(--copper);
+  color: var(--ink);
+}
+
+.chapter {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+  padding: 34px 0;
+  border-top: 1px solid var(--line);
+}
+
+.chapter h2 {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 560;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.chapter p {
+  margin: 0 0 12px;
+  max-width: 42rem;
+}
+
+.num {
+  margin: 6px 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--copper-deep);
+}
+
+.trio,
+.split {
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.trio {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.split {
+  grid-template-columns: 1fr 1fr;
+}
+
+.trio article,
+.split article {
+  background: var(--cream-2);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px 16px 8px;
+}
+
+.trio h3,
+.split h3,
+.contact h3 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 560;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.pills li {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--night);
+  color: var(--cream);
+  font-size: 0.92rem;
+}
+
+.steps {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.steps li::before {
+  content: counter(step);
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--copper-deep);
+  font-size: 1.2rem;
+}
+
+.chapter-close {
+  border-bottom: 1px solid var(--line);
+}
+
+blockquote {
+  margin: 8px 0 16px;
+  padding: 4px 0 4px 18px;
+  border-left: 3px solid var(--copper);
+}
+
+blockquote p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  line-height: 1.25;
+}
+
+.signature {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+.close {
+  margin-top: 28px;
+  background:
+    radial-gradient(ellipse at 0% 100%, rgb(36 54 44 / 80%), transparent 50%),
+    var(--night);
+  color: var(--cream);
+}
+
+.close-inner {
+  width: min(820px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 72px 0;
+}
+
+.close h2 {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 560;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+}
+
+.close p {
+  max-width: 38rem;
+}
+
+.kicker-light {
+  color: var(--gold);
+}
+
+.fine {
+  color: #d9d0c3;
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+
+.contact {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid rgb(244 239 230 / 16%);
+}
+
+.contact a,
+.close .fine {
+  color: var(--gold);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 36px 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.stats strong {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 560;
+  line-height: 1.1;
+}
+
+.stats span {
+  color: #e7dece;
+  font-size: 0.95rem;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 22px 0 32px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .promises,
+  .layout,
+  .trio,
+  .split,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 48px;
+  }
+
+  .sky {
+    order: -1;
+  }
+
+  .promises li + li {
+    box-shadow: inset 0 1px 0 rgb(244 239 230 / 16%);
+  }
+
+  .sommaire {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .sommaire ol {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .sommaire a {
+    white-space: nowrap;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 12px;
+    background: var(--cream-2);
+  }
+
+  .sommaire a[aria-current="true"] {
+    border-color: var(--copper);
+    background: white;
+  }
+
+  .chapter {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .site-footer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% - 6px);
+    left: 12px;
+    right: 12px;
+    margin: 0;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px;
+    border-radius: 16px;
+    background: var(--cream-2);
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 10px 8px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.7rem, 14vw, 4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .orbit-a,
+  .orbit-b,
+  .orbit-c {
+    animation: none;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media print {
+  .site-header,
+  .sommaire,
+  .sky,
+  .hero-actions,
+  .nav-toggle {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+    background: white;
+    color: black;
+    padding: 0 0 24px;
+  }
+
+  .lead,
+  .hero-note,
+  .promises,
+  .close {
+    color: black;
+    background: white;
+  }
+
+  body {
+    background: white;
+  }
+}
+
+</style>
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Aller au guide</a>
+
+    <header class="site-header">
+      <a class="brand" href="#haut">
+        <span class="brand-mark" aria-hidden="true"></span>
+        Guide Starlink
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Sommaire
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Sections principales">
+        <a href="#pourquoi">Pourquoi</a>
+        <a href="#installation">Installer</a>
+        <a href="#mini">Mini</a>
+        <a href="#securite">Sécurité</a>
+        <a href="#parrainage">Mois offert</a>
+      </nav>
+    </header>
+
+    <main id="haut">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="kicker">Guide gratuit · Jean-Claude B.</p>
+          <h1>Le fil peut lâcher.<br />Le ciel, non.</h1>
+          <p class="lead">
+            Starlink n’est pas un loisir de plus. C’est une ligne de secours pour les maisons
+            isolées, les routes, les chantiers et les jours où le réseau terrestre tombe. La
+            lecture est gratuite. Le matériel et l’abonnement, eux, sont un vrai investissement.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#pourquoi">Lire le guide</a>
+            <a class="button button-ghost" href="#parrainage">Un mois offert</a>
+          </div>
+          <p class="hero-note">Guide personnel. Ce n’est pas le site de Starlink.</p>
+        </div>
+
+        <div class="sky" aria-hidden="true">
+          <svg viewBox="0 0 520 520">
+            <g class="stars">
+              <circle cx="70" cy="64" r="1.4" />
+              <circle cx="120" cy="140" r="1" />
+              <circle cx="210" cy="48" r="1.6" />
+              <circle cx="300" cy="90" r="1" />
+              <circle cx="390" cy="40" r="1.5" />
+              <circle cx="450" cy="120" r="1.1" />
+              <circle cx="84" cy="220" r="1" />
+              <circle cx="460" cy="200" r="1.3" />
+            </g>
+            <g class="orbit orbit-a">
+              <ellipse cx="260" cy="214" rx="150" ry="58" />
+              <circle class="sat" cx="410" cy="214" r="4" />
+            </g>
+            <g class="orbit orbit-b">
+              <ellipse cx="260" cy="214" rx="112" ry="86" transform="rotate(-28 260 214)" />
+              <circle class="sat" cx="350" cy="150" r="3.5" />
+            </g>
+            <g class="orbit orbit-c">
+              <ellipse cx="260" cy="214" rx="78" ry="120" transform="rotate(18 260 214)" />
+              <circle class="sat" cx="210" cy="108" r="3.2" />
+            </g>
+            <g class="dish">
+              <path class="signal" d="M168 250c28-46 156-46 184 0" />
+              <path class="signal signal-2" d="M190 268c18-28 122-28 140 0" />
+              <ellipse cx="260" cy="318" rx="78" ry="22" />
+              <path d="M214 318c10 28 82 28 92 0" />
+              <path d="M260 336v42" />
+              <path d="M228 386h64" />
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <ul class="promises">
+        <li>
+          <span>01</span>
+          <strong>Gratuit à lire</strong>
+          <p>Aucun frais pour le guide. L’antenne et l’abonnement se paient à part.</p>
+        </li>
+        <li>
+          <span>02</span>
+          <strong>Un ciel dégagé</strong>
+          <p>Sans vue ouverte vers le ciel, le satellite ne peut pas vous répondre.</p>
+        </li>
+        <li>
+          <span>03</span>
+          <strong>30 jours d’essai</strong>
+          <p>On teste le matériel. S’il ne convient pas, on peut le renvoyer.</p>
+        </li>
+      </ul>
+
+      <div class="layout" id="contenu">
+        <nav class="sommaire" aria-label="Sommaire du guide">
+          <p>Dans ce guide</p>
+          <ol>
+            <li><a href="#pourquoi">Pourquoi ce guide</a></li>
+            <li><a href="#fonctionnement">Comment ça marche</a></li>
+            <li><a href="#fibre">Fibre ou satellite</a></li>
+            <li><a href="#forfaits">Forfaits</a></li>
+            <li><a href="#installation">Où l’installer</a></li>
+            <li><a href="#energie">Hors réseau</a></li>
+            <li><a href="#route">En déplacement</a></li>
+            <li><a href="#mini">Le kit Mini</a></li>
+            <li><a href="#application">L’application</a></li>
+            <li><a href="#compte">Le compte</a></li>
+            <li><a href="#assistance">L’assistance</a></li>
+            <li><a href="#boutique">Achat ou location</a></li>
+            <li><a href="#pros">Particuliers et entreprises</a></li>
+            <li><a href="#officiel">Le site officiel</a></li>
+            <li><a href="#desert">Les endroits déserts</a></li>
+            <li><a href="#catastrophes">Les catastrophes</a></li>
+            <li><a href="#securite">La sécurité</a></li>
+            <li><a href="#experience">Retour d’expérience</a></li>
+          </ol>
+        </nav>
+
+        <div class="chapters">
+          <article class="chapter" id="pourquoi">
+            <p class="num">01</p>
+            <div>
+              <h2>Gratuit à lire. Sérieux à brancher.</h2>
+              <p>
+                Ce guide est partagé en toute transparence, sans frais de lecture. Il rappelle
+                toutefois une chose simple : le matériel et les abonnements Starlink sont un
+                investissement technologique, pas une dépense légère.
+              </p>
+              <p>
+                Il ne s’adresse pas aux usages superficiels. Il s’adresse à ceux qui voient dans
+                la connexion un outil de sécurité civile et de continuité : rester joignable,
+                garder une activité en marche, ne pas dépendre d’un seul fil.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter" id="fonctionnement">
+            <p class="num">02</p>
+            <div>
+              <h2>Le signal descend du ciel.</h2>
+              <p>
+                Starlink repose sur une constellation de satellites en orbite basse, développée
+                par SpaceX. Le signal voyage du satellite jusqu’à votre antenne.
+              </p>
+              <p>
+                Il ne passe ni par un câble souterrain, ni par un relais au sol. Le relief, une
+                ligne arrachée ou une tour en panne ne coupent pas ce trajet. Là où le réseau
+                terrestre est fragile, le ciel fait le relais.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter" id="fibre">
+            <p class="num">03</p>
+            <div>
+              <h2>La fibre quand elle tient. Le satellite quand elle lâche.</h2>
+              <p>
+                Inutile de concurrencer une fibre optique qui fonctionne sans accroc. Dans de
+                bonnes conditions, le fil de verre reste le meilleur choix.
+              </p>
+              <p>
+                Le satellite s’impose ailleurs : l’isolement, les zones blanches, et les pannes
+                qui coupent net les réseaux terrestres. Trois formules couvrent l’essentiel,
+                selon le besoin.
+              </p>
+              <div class="trio">
+                <article>
+                  <h3>Résidentiel</h3>
+                  <p>La maison, l’adresse fixe, l’usage de tous les jours.</p>
+                </article>
+                <article>
+                  <h3>Nomade</h3>
+                  <p>La route, le temporaire, le mobile ou Roam.</p>
+                </article>
+                <article>
+                  <h3>Professionnel</h3>
+                  <p>Le chantier, l’entreprise, la continuité d’activité.</p>
+                </article>
+              </div>
+            </div>
+          </article>
+
+          <article class="chapter" id="forfaits">
+            <p class="num">04</p>
+            <div>
+              <h2>Vous savez ce que vous payez.</h2>
+              <p>
+                Deux familles à comparer avant de commander : le résidentiel, pour une adresse
+                fixe, et le mobile / Roam, pour bouger. Chaque formule a son usage, ses limites
+                et son prix.
+              </p>
+              <p>
+                Pas de mauvaise surprise volontaire : le montant exact change, et il se lit sur
+                le site officiel au moment de la commande. Starlink prévoit un essai de 30 jours
+                pour tester le matériel et le renvoyer s’il ne donne pas satisfaction. Relisez
+                la politique en vigueur avant d’acheter.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter" id="installation">
+            <p class="num">05</p>
+            <div>
+              <h2>D’abord le ciel. Ensuite le toit.</h2>
+              <p>
+                L’emplacement idéal exige un dégagement vers le ciel, sans obstacle. Une branche,
+                un pignon ou un poteau suffit à couper le lien avec les satellites.
+              </p>
+              <div class="split">
+                <article>
+                  <h3>Par vous-même</h3>
+                  <p>
+                    Beaucoup de kits se posent sans installateur : on repère le ciel, on essaie
+                    au sol, on oriente, puis on fixe seulement quand le signal tient.
+                  </p>
+                </article>
+                <article>
+                  <h3>Avec un installateur</h3>
+                  <p>
+                    Toit haut, pente raide, passage de câble difficile : faites appel à quelqu’un.
+                    Improviser en hauteur n’est pas une économie.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </article>
+
+          <article class="chapter" id="energie">
+            <p class="num">06</p>
+            <div>
+              <h2>Solaire, génératrice ou batterie.</h2>
+              <p>
+                Le kit ne dépend pas d’une prise de maison. Il s’adapte aux configurations hors
+                réseau, tant que l’antenne et le routeur reçoivent du courant.
+              </p>
+              <div class="trio">
+                <article>
+                  <h3>Solaire</h3>
+                  <p>Panneaux et batterie de maison, pour une autonomie plus longue.</p>
+                </article>
+                <article>
+                  <h3>Génératrice</h3>
+                  <p>Le groupe électrogène, utile en panne ou sur un chantier.</p>
+                </article>
+                <article>
+                  <h3>Batterie</h3>
+                  <p>Une batterie nomade, pour quelques heures ou un départ rapide.</p>
+                </article>
+              </div>
+            </div>
+          </article>
+
+          <article class="chapter" id="route">
+            <p class="num">07</p>
+            <div>
+              <h2>Il suit la route.</h2>
+              <p>
+                Camping-car, caravane, mobil-home, voiture : la version nomade est faite pour
+                ceux qui bougent, et pour ceux qui s’arrêtent longtemps au même terrain.
+              </p>
+              <ul class="pills">
+                <li>Camping-car</li>
+                <li>Caravane</li>
+                <li>Mobil-home</li>
+                <li>Voiture</li>
+                <li>Séjour temporaire</li>
+              </ul>
+              <p>
+                Le lien reste disponible là où la route mène, sans attendre qu’un opérateur tire
+                un câble jusqu’à vous. Une caravane entreposée entre deux sorties peut, elle
+                aussi, garder le contact.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter" id="mini">
+            <p class="num">08</p>
+            <div>
+              <h2>Le Mini tient dans un sac.</h2>
+              <p>
+                Le kit Mini est la version compacte : complet, prêt à fonctionner, transportable
+                partout. On peut le poser au sol ou sur un support improvisé.
+              </p>
+              <p>
+                Lisez quand même le contrat de cette version nomade. Zone couverte, durée, et ce
+                qui se passe si vous restez longtemps au même endroit : les règles ne sont pas
+                celles d’une antenne fixe à la maison.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter" id="application">
+            <p class="num">09</p>
+            <div>
+              <h2>L’application regarde le ciel pour vous.</h2>
+              <p>
+                Sur le cellulaire, l’application Starlink est l’outil d’installation. Un module
+                de réalité augmentée scanne le ciel, marque les obstacles, puis guide
+                l’orientation de l’antenne.
+              </p>
+              <ol class="steps">
+                <li>Téléchargez l’application avant de sortir l’antenne.</li>
+                <li>Scannez le ciel à l’endroit prévu.</li>
+                <li>Posez le kit à l’essai, sans rien percer.</li>
+                <li>Suivez l’orientation indiquée à l’écran.</li>
+                <li>Fixez pour de bon seulement quand le signal tient.</li>
+              </ol>
+            </div>
+          </article>
+
+          <article class="chapter" id="compte">
+            <p class="num">10</p>
+            <div>
+              <h2>Compte, facture, débit, aide : un seul endroit.</h2>
+              <p>
+                L’espace client réunit le suivi, les factures, les tests de vitesse et la
+                discussion avec le support. Il s’ouvre sur le cellulaire comme sur l’ordinateur.
+              </p>
+              <p>Vous n’avez pas à chercher le service sur trois sites différents.</p>
+            </div>
+          </article>
+
+          <article class="chapter" id="assistance">
+            <p class="num">11</p>
+            <div>
+              <h2>Un pépin se dit clairement.</h2>
+              <p>
+                L’outil de discussion règle une bonne partie des questions techniques. En cas de
+                retard de livraison ou d’autre pépin logistique, une réclamation précise peut
+                déboucher sur un geste commercial : un avoir, du matériel en plus, ou un tarif
+                allégé pour un temps.
+              </p>
+              <p>
+                Ce n’est pas automatique. C’est le résultat d’un message argumenté, avec les
+                faits. L’assistance sait se montrer commerciale quand le dossier est clair.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter" id="boutique">
+            <p class="num">12</p>
+            <div>
+              <h2>Louer, acheter, ou ajouter la bonne pièce.</h2>
+              <p>
+                Selon la période et le besoin, le matériel se loue ou s’achète. La boutique
+                officielle propose aussi les accessoires : fixations, câbles spécifiques,
+                adaptateurs d’alimentation.
+              </p>
+              <p>La bonne pièce évite souvent un bricolage qui ne tiendra pas l’hiver.</p>
+            </div>
+          </article>
+
+          <article class="chapter" id="pros">
+            <p class="num">13</p>
+            <div>
+              <h2>La maison, et aussi le travail.</h2>
+              <p>
+                La même idée sert un foyer isolé, une association, un chantier ou une entreprise
+                en zone blanche. Pour un particulier, c’est souvent le lien avec les autres.
+                Pour un professionnel, c’est la continuité et des données qui ne peuvent pas
+                attendre le retour du réseau.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter" id="officiel">
+            <p class="num">14</p>
+            <div>
+              <h2>Le site officiel a le dernier mot.</h2>
+              <p>
+                Avant de commander, ouvrez le site Starlink. Vérifiez l’admissibilité de votre
+                adresse exacte, et relisez le prix du jour. Ce guide explique la démarche. Le
+                site affiche l’offre en vigueur.
+              </p>
+              <p>
+                <a href="https://www.starlink.com" rel="noopener noreferrer">Aller sur starlink.com</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter" id="desert">
+            <p class="num">15</p>
+            <div>
+              <h2>Même là où la route finit.</h2>
+              <p>
+                L’intérêt est concret : du haut débit là où les opérateurs classiques ne tirent
+                pas de câble. Villages écartés, chemins, coins sans tour. L’isolement n’est plus
+                une fatalité numérique.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter" id="catastrophes">
+            <p class="num">16</p>
+            <div>
+              <h2>Quand la tempête coupe tout le reste.</h2>
+              <p>
+                Verglas, inondation, panne longue, réseau terrestre à terre : si l’antenne a du
+                courant, le satellite reste un canal. C’est un outil de continuité, pas un
+                confort en plus.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter" id="securite">
+            <p class="num">17</p>
+            <div>
+              <h2>Des personnes, des biens, une ligne qui reste.</h2>
+              <p>
+                C’est la priorité de ce guide. Une connexion de secours peut garder une alarme
+                active, permettre une télésurveillance, et laisser un cellulaire joindre les
+                secours par les appels Wi-Fi lorsque le forfait le permet.
+              </p>
+              <p>
+                Ce n’est pas une promesse que chaque appel aboutira. C’est une ligne de plus,
+                au moment où les autres ont déjà lâché.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter chapter-close" id="experience">
+            <p class="num">18</p>
+            <div>
+              <h2>Ce que l’installation a confirmé.</h2>
+              <blockquote>
+                <p>
+                  Installé de mes propres mains, en zone rurale isolée, là où les lignes tombent
+                  souvent et où le débit manque. Le réglage de l’antenne a fait la différence.
+                </p>
+              </blockquote>
+              <p>
+                Avec une installation soignée, une alimentation autonome et un bon usage de
+                l’assistance, le satellite n’est pas un luxe. C’est un bouclier.
+              </p>
+              <p class="signature">Jean-Claude B.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <section class="close" id="parrainage">
+        <div class="close-inner">
+          <p class="kicker kicker-light">Parrainage officiel</p>
+          <h2>Un mois de service offert.</h2>
+          <p>
+            Le lien ci-dessous ouvre un mois offert sur l’abonnement. Il m’en garantit un
+            également, pour soutenir la rédaction de ce guide. C’est dit clairement.
+          </p>
+          <a
+            class="button"
+            href="https://starlink.com?referral=RC-DF-11577924-53788-13"
+            rel="noopener noreferrer"
+            >Activer le mois offert</a
+          >
+          <p class="fine">
+            https://starlink.com?referral=RC-DF-11577924-53788-13
+          </p>
+
+          <div class="contact" id="contact">
+            <h3>Une question sur le réglage ou le matériel ?</h3>
+            <p>
+              Écrivez-moi à
+              <a href="mailto:infodunet896@gmail.com">infodunet896@gmail.com</a>
+            </p>
+          </div>
+
+          <ul class="stats">
+            <li>
+              <strong>12 millions</strong>
+              <span>de clients actifs dans le monde, et le nombre continue de monter.</span>
+            </li>
+            <li>
+              <strong>Des centaines de milliers</strong>
+              <span>de nouveaux abonnés s’ajoutent chaque mois.</span>
+            </li>
+            <li>
+              <strong>Bien au-delà des maisons</strong>
+              <span>
+                Entreprises, secours, liaisons directes vers les cellulaires, avions de ligne
+                et navires s’en servent aussi.
+              </span>
+            </li>
+          </ul>
+          <p class="fine">
+            Le cap des 12 millions correspond au point public de la mi-2026. Les prix et les
+            conditions se vérifient sur le site officiel.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Guide personnel de Jean-Claude B. Ce n’est pas le site de Starlink ni de SpaceX.</p>
+      <p>
+        <a href="mailto:infodunet896@gmail.com">infodunet896@gmail.com</a>
+        ·
+        <a href="https://www.starlink.com" rel="noopener noreferrer">starlink.com</a>
+      </p>
+    </footer>
+
+    <script>
+const header = document.querySelector('.site-header')
+const toggle = document.querySelector('.nav-toggle')
+const nav = document.querySelector('#site-nav')
+const hero = document.querySelector('.hero')
+
+toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('is-open')
+  toggle.setAttribute('aria-expanded', String(open))
+})
+
+nav.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('is-open')
+    toggle.setAttribute('aria-expanded', 'false')
+  })
+})
+
+const heroWatch = new IntersectionObserver(
+  ([entry]) => {
+    header.classList.toggle('is-solid', !entry.isIntersecting)
+  },
+  { rootMargin: '-72px 0px 0px 0px', threshold: 0 },
+)
+heroWatch.observe(hero)
+
+const sommaireLinks = [...document.querySelectorAll('.sommaire a')]
+const sections = sommaireLinks
+  .map((link) => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean)
+
+const sectionWatch = new IntersectionObserver(
+  (entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+    if (!visible) return
+    sommaireLinks.forEach((link) => link.removeAttribute('aria-current'))
+    const current = sommaireLinks.find(
+      (link) => link.getAttribute('href') === `#${visible.target.id}`,
+    )
+    if (current) current.setAttribute('aria-current', 'true')
+  },
+  { rootMargin: '-20% 0px -55% 0px', threshold: [0.15, 0.4, 0.7] },
+)
+
+sections.forEach((section) => sectionWatch.observe(section))
+
+</script>
+  </body>
+</html>
