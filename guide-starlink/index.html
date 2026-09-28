@@ -2,7 +2,9 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#14110e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>Guide Starlink — Quand le fil lâche | Jean-Claude B.</title>
     <meta
       name="description"
@@ -42,6 +44,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header) + 12px);
 }
 
 body {
@@ -685,7 +688,117 @@ blockquote p {
   }
 
   .hero h1 {
-    font-size: clamp(2.7rem, 14vw, 4rem);
+    font-size: clamp(2.35rem, 12vw, 3.3rem);
+  }
+}
+
+.chapter,
+.close-inner {
+  scroll-margin-top: calc(var(--header) + 12px);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header: 60px;
+  }
+
+  body {
+    font-size: 1.02rem;
+  }
+
+  .site-header {
+    padding: 8px 14px;
+    padding-top: max(8px, env(safe-area-inset-top));
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+
+  .nav-toggle {
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+
+  .hero {
+    padding: calc(var(--header) + 8px) 18px 28px;
+    gap: 4px;
+  }
+
+  .sky svg {
+    width: min(68vw, 240px);
+  }
+
+  .kicker {
+    letter-spacing: 0.08em;
+  }
+
+  .lead {
+    margin-top: 14px;
+    font-size: 1.05rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .promises li {
+    padding: 18px 18px 20px;
+  }
+
+  .promises strong {
+    font-size: 1.3rem;
+  }
+
+  .layout {
+    width: min(1120px, calc(100% - 28px));
+    gap: 18px;
+    padding-top: 22px;
+  }
+
+  .sommaire ol {
+    margin-right: -14px;
+    padding-right: 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sommaire a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .chapter {
+    padding: 26px 0;
+  }
+
+  .chapter h2,
+  .close h2 {
+    font-size: 1.7rem;
+  }
+
+  .trio article,
+  .split article {
+    padding: 14px 14px 6px;
+  }
+
+  .close-inner {
+    width: min(820px, calc(100% - 28px));
+    padding: 40px 0 48px;
+  }
+
+  .stats {
+    gap: 22px;
+  }
+
+  .site-footer {
+    width: min(1120px, calc(100% - 28px));
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
   }
 }
 
